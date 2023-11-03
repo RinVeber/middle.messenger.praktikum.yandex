@@ -1,0 +1,19 @@
+<section class="register">
+    <h2 class="register__header">Регистрация</h2>
+    {{#> Form}}
+    <div class="register__input-container">
+        {{> Input label="email" }}
+        {{> Input label="login" }}
+        {{> Input label="first_name" }}
+        {{> Input label="second_name" }}
+        {{> Input label="phone" }}
+        {{> Input label="password" }}
+        {{> Input label="Повторите пароль" }}
+    </div>
+    <div class="register__btn-container">
+        {{> Button label="Зарегистрироваться" classType="primary" page="chat"}}
+        {{> Button label="Вход" classType="secondary" page="login"}}
+    </div>
+
+    {{/Form}}
+</section>

@@ -1,0 +1,26 @@
+<section class="chat">
+    <div class="chat__container">
+        <div class="chat__container-header">
+            <h6 class="chat__header" page="profile">Профиль &#10140;</h6>
+            <div class="chat__container-header-search">
+                <img class="chat__search-icon" src={{search}} alt="поиск" />
+                <div class="chat__search-text">Поиск</div>
+            </div>
+        </div>
+        <ul class="chat__list-messages">
+            {{> Message avatar_user=avatar_user user__name="User" user__last-message='Сообщение...'
+            time_data="05.05.2023" checked='1' }}
+            {{> Message avatar_user=avatar_user user__name="User2" user__last-message='Сообщение...'
+            time_data="05.05.2023" checked='1' }}
+            {{> Message avatar_user=avatar_user user__name="User3" user__last-message='Сообщение...'
+            time_data="05.05.2023" checked='1' }}
+            {{> Message avatar_user=avatar_user user__name="User4" user__last-message='Сообщение...'
+            time_data="05.05.2023" checked='1' }}
+        </ul>
+
+    </div>
+    <div class="chat__window-chat">
+        <h2 class="chat__choose">Выберите чат чтобы отправить сообщение</h2>
+    </div>
+
+</section>
