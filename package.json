@@ -2,6 +2,7 @@
   "name": "middle.messenger.praktikum.yandex",
   "private": true,
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "start": "node server.js",
@@ -9,10 +10,10 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "typescript": "^5.0.2",
-    "vite": "^4.4.5"
+    "typescript": "^5.0.2"
   },
   "dependencies": {
+    "vite": "^4.4.5",
     "eslint": "^8.52.0",
     "eslint-config-airbnb-typescript": "^17.1.0",
     "eslint-config-prettier": "^9.0.0",
