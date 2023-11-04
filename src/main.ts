@@ -45,7 +45,7 @@ document.addEventListener('click', (event) => {
   if (!event.target) return;
 
   const link = event.target as HTMLButtonElement;
-  const page = link.getAttribute('page') as PagesType;
+  const page = link.getAttribute('href') as PagesType;
 
   if (page.length > 0) {
     navigate(page);

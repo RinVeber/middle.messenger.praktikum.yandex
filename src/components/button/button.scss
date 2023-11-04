@@ -11,6 +11,10 @@
     border-radius: 8px;
     box-sizing: border-box;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 
     &__primary {
         background-color: #3369F3;
