@@ -41,16 +41,17 @@ function navigate(page: PagesType) {
 
 document.addEventListener('DOMContentLoaded', () => navigate('login'));
 
-document.addEventListener('click', (e) => {
-  if (!e.target) return;
+document.addEventListener('click', (event) => {
+  const link = event.target as HTMLButtonElement;
+  const page = link.getAttribute('href') as PagesType;
 
-  const el = e.target as HTMLButtonElement;
-  const page = el.getAttribute('page') as PagesType;
+  if (!page) {
+    return;
+  }
 
   if (page.length > 0) {
     navigate(page);
-
-    e.preventDefault();
-    e.stopImmediatePropagation();
+    event.preventDefault();
+    event.stopImmediatePropagation();
   }
 });

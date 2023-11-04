@@ -1,4 +1,4 @@
 declare module '*.hbs' {
-    const tpl: (param?: any) => string;
+    const tpl: (param?: unknown) => string;
     export default tpl
 }
