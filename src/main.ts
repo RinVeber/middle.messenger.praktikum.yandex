@@ -49,7 +49,6 @@ document.addEventListener('click', (event) => {
 
   if (page.length > 0) {
     navigate(page);
-
     event.preventDefault();
     event.stopImmediatePropagation();
   }
