@@ -18,5 +18,4 @@
  - npm run dev - запуск в режиме разработки
  - npm run build - соберет билд версию проекта
  - npm run start - запуск node сервера на 3000 порту
- new line
  
