@@ -6,8 +6,13 @@
         {{> Input label="password" }}
     </div>
     <div class="login__btn-container">
-        {{> Button label="Авторизоваться" classType="primary" page="chat"}}
-        {{> Button label="Нет аккаунта?" classType="secondary" page="register"}}
+        <a href="../chat/index.ts">
+              {{> Button label="Авторизоваться" classType="primary" page="chat"}}
+        </a>
+  <a href="../register/index.ts">
+       {{> Button label="Нет аккаунта?" classType="secondary" page="register"}}
+  </a>
+   
     </div>
     {{/Form}}
 </section>
