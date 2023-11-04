@@ -2,12 +2,12 @@
     {{>Avatar avatar=avatar label="Иван"}}
     {{#> Form}}
     <div class="profile__content">
-        {{> InputProfile label="email" value="pochta@yandex.ru" }}
-        {{> InputProfile label="login" value="login" }}
-        {{> InputProfile label="first_name" value="first_name" }}
-        {{> InputProfile label="second_name" value="second_name"}}
-        {{> InputProfile label="display_name" value="ivan" }}
-        {{> InputProfile label="phone" value="+789898898" }}
+        {{> InputProfile name="email" value="pochta@yandex.ru" }}
+        {{> InputProfile name="login" value="login" }}
+        {{> InputProfile name="first_name" value="first_name" }}
+        {{> InputProfile name="second_name" value="second_name"}}
+        {{> InputProfile name="display_name" value="ivan" }}
+        {{> InputProfile name="phone" value="+789898898" }}
     </div>
     <div class="profile__btn-container">
     {{> Button label="Сохранить" classType="primary" page="chat"}}
