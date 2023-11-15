@@ -1,0 +1,51 @@
+.button {
+    margin: 0;
+    padding: 0;
+    height: 37px;
+    width: 280px;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 13px;
+    color: #1E1E1E;
+    border: none;
+    border-radius: 8px;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+
+    &__primary {
+        background-color: #3369F3;
+        color: white;
+    }
+
+    &__secondary {
+        color: #3369F3;
+        background-color: white;
+    }
+
+    &__third {
+        color: #999999;
+        font-size: 13px;
+        line-height: 13px;
+        font-weight: 400;
+        background-color: white;
+        
+    }
+
+    &__secondary-border {
+        color: #3369F3;
+        background-color: white;
+        width: 100%;
+        text-align: start;
+        border-bottom: 1px solid #EAEAEA;
+    }
+    &__four {
+        text-align: start;
+        width: 100%;
+        color: #FF0000;
+        background-color: white;
+    }
+}

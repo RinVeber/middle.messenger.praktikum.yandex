@@ -1,0 +1,17 @@
+<section class="profile">
+    {{>Avatar avatar=avatar label="Иван"}}
+    <div class="profile__content">
+        {{> Info label="email" value="pochta@yandex.ru" }}
+        {{> Info label="login" value="login" }}
+        {{> Info label="first_name" value="first_name" }}
+        {{> Info label="second_name" value="second_name"}}
+        {{> Info label="display_name" value="ivan" }}
+        {{> Info label="phone" value="+789898898" }}
+          
+    </div>
+    <div class="profile__btn-container">
+        {{> Button label="Изменить данные" classType="secondary-border" page="profile-change-data"}}
+        {{> Button label="Изменить пароль" classType="secondary-border" page="profile-change-password"}}
+        {{> Button label="Выйти" classType="four" page="login"}}
+    </div>
+</section>
