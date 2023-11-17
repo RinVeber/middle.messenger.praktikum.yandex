@@ -1,0 +1,28 @@
+<section class="profile">
+  {{{BackLinkButton}}}
+
+  <div class="profile__block">
+    <div class="profile__info">
+      <div class="profile__avatar">
+        {{#if condition}}
+          <img class="profile__picture" src="{{avatar}}"/>
+          {{else}}
+          {{{AvatarDefault}}}
+        {{/if}}
+      </div>
+
+      <h1 class="profile__name">
+        Иван
+      </h1>
+    </div>
+    {{#if isProfileChange}}
+      {{{ProfileForm}}}
+    {{/if}}
+
+    {{#unless isProfileChange}}
+      {{{ProfilePassword}}}
+    {{/unless}}
+    {{{ChangeFormButton}}}
+        {{{ButtonOut}}}
+  </div>
+</section>

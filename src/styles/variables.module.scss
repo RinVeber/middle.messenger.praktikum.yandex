@@ -1,0 +1,71 @@
+// blue
+$color-blue-100: #cbe5ee;
+$color-blue-200: #e4edfd;
+$color-blue-400: #42a5f5;
+$color-blue-700: #1976d2;
+$color-blue-800: #1565c0;
+
+// light-blue
+$color-light-blue-A600: #039BE5;
+$color-light-blue-A800: #3369F3;
+
+// gray
+$color-gray-100: #eef0f2;
+$color-gray-200: #eee;
+$color-gray-300: #dddee1;
+$color-gray-400: #bdbdbd;
+$color-gray-500: #6b6e72;
+$color-gray-600: #757575;
+$color-gray-700: #999da3;
+$color-gray-800: #424242;
+
+// light-gray
+$color-light-gray-300: #eaedee;
+$color-light-gray-A400: #f6f7f7;
+
+// red
+$color-red-300: #ff8a65;
+$color-red-400: #ff7043;
+$color-red-500: #e30726;
+
+// pink
+$color-pink-400: #ffc0cb;
+
+// white
+$color-white: #fff;
+
+// black
+$color-black: #212323;
+$color-black-text: #363b41;
+
+// yellow
+$color-yellow-50: #fffde7;
+$color-yellow-80: #fff0ab;
+$color-yellow-100: #fff9c4;
+$color-yellow-200: #f1dfb8;
+$color-yellow-600: #f4c500;
+
+// green
+$color-green-100: #c7edca;
+$color-green-500: #19a900;
+
+// purple
+$color-purple-50: #fad3ff;
+$color-purple-600: #e8def8;
+
+
+// typography
+$font-family-base: 'Inter', arial, sans-serif;
+$font-weight-thin: 100;
+$font-weight-light: 300;
+$font-weight-medium: 500;
+$font-weight-rare-medium: 500;
+$font-weight-bold: 700;
+$font-weight-black: 900;
+$font-size-base: 16px;
+$font-size-mob: 12px;
+
+// responsive-breakpoints
+$md-breakpoint: 1200px;
+$sm-breakpoint: 767px;
+$xs-breakpoint: 575px;

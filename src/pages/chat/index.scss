@@ -1,0 +1,54 @@
+.chat {
+  display: flex;
+
+  &__lside {
+    flex-basis: 300px;
+    flex-shrink: 1;
+    border-right: thin solid $color-gray-300;
+
+    &-header {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      max-height: 100px;
+      padding: 6px;
+    }
+
+    &-button {
+      align-self: flex-end;
+      width: 90px;
+
+      &--text {
+        color: $color-gray-700;
+        font-weight: $font-weight-light;
+      }
+    }
+
+
+    &-list {
+      padding: 6px 0;
+      height: calc(100vh - 200px);
+      overflow-y: scroll;
+
+      @include remove-scroll-bar;
+    }
+  }
+
+  &__input-search {
+    max-width: 300px;
+    width: 100%;
+  }
+
+}
+
+
+.avatar {
+  background-color: $color-gray-300;
+  border-radius: 50%;
+  border: none;
+  object-fit: cover;
+  min-height: 52px;
+  min-width: 52px;
+  height: 52px;
+  width: 52px;
+}

@@ -1,0 +1,29 @@
+<label class="label {{classLabel}}">
+  <span class="label__text">
+    {{label}}
+  </span>
+
+  <input 
+    class="input {{ class }}" 
+    id="{{id}}" 
+    value="{{value}}"
+    type="{{type}}" 
+    name="{{name}}"
+    placeholder="{{placeholder}}"
+    {{#if required}}
+      required="{{required}}" 
+    {{/if}}
+    {{#if pattern}}
+      pattern="{{pattern}}"
+    {{/if}}
+    {{#if readonly}}
+      readonly
+    {{/if}}
+    {{#if disabled}}
+      disabled
+    {{/if}}
+  />
+
+  <span class="input__error-text">
+  </span>
+</label>
