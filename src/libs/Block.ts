@@ -1,7 +1,7 @@
 import EventBus from './EventBus';
 import { nanoid } from 'nanoid';
 
-export default class Block<P extends Record<string, any> = any> {
+export default class Block<Props extends Record<string, any> = any> {
   static EVENTS = {
     INIT: "init",
     FLOW_CDM: "flow:component-did-mount",
@@ -10,12 +10,12 @@ export default class Block<P extends Record<string, any> = any> {
   } as const;
   
   public id = nanoid(5);
-  protected props: P;
+  protected props: Props;
   public children: Record<string, Block | Block[]>
   private eventBus: () => EventBus;
   private _element: HTMLElement | null = null;
 
-  constructor(propsWithChildren: P) {
+  constructor(propsWithChildren: Props) {
     const eventBus = new EventBus();
 
     const { props, children } = this._getChildrenAndProps(propsWithChildren);
@@ -29,7 +29,7 @@ export default class Block<P extends Record<string, any> = any> {
     eventBus.emit(Block.EVENTS.INIT);
   }
 
-  private _getChildrenAndProps(childrenAndProps: P): { props: P, children: Record<string, Block | Block[]> } {
+  private _getChildrenAndProps(childrenAndProps: Props): { props: Props, children: Record<string, Block | Block[]> } {
     const props: Record<string, unknown> = {};
     const children: Record<string, Block | Block[]> = {};
 
@@ -44,11 +44,11 @@ export default class Block<P extends Record<string, any> = any> {
       }
     })
 
-    return {props: props as P, children};
+    return {props: props as Props, children};
   }
 
   private _addEvents() {
-    const {events = {}} = this.props as P & {events: Record<string, () => void>};
+    const {events = {}} = this.props as Props & {events: Record<string, () => void>};
 
     Object.keys(events).forEach((eventName) => {
       this._element?.addEventListener(eventName, events[eventName]);
@@ -56,7 +56,7 @@ export default class Block<P extends Record<string, any> = any> {
   }
 
   private _removeEvents() {
-    const {events = {}} = this.props as P & {events: Record<string, () => void>};
+    const {events = {}} = this.props as Props & {events: Record<string, () => void>};
 
     Object.keys(events).forEach((eventName) => {
       this._element?.removeEventListener(eventName, events[eventName]);
@@ -95,7 +95,7 @@ export default class Block<P extends Record<string, any> = any> {
     });
   }
 
-  private _componentDidUpdate(oldProps: P, newProps: P) {
+  private _componentDidUpdate(oldProps: Props, newProps: Props) {
     if (this.componentDidUpdate(oldProps, newProps)) {
       this._removeEvents();
       this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
@@ -108,11 +108,11 @@ export default class Block<P extends Record<string, any> = any> {
   }
 
   // Может переопределять пользователь, необязательно трогать
-  protected componentDidUpdate(_oldProps: P, _newProps: P) {
+  protected componentDidUpdate(_oldProps: Props, _newProps: Props) {
     return true;
   }
 
-  setProps = (nextProps: P) => {
+  setProps = (nextProps: Props) => {
     if (!nextProps) {
       return;
     }
@@ -186,7 +186,7 @@ export default class Block<P extends Record<string, any> = any> {
     return temp.content;
   }
 
-  _makePropsProxy(props: P) {
+  _makePropsProxy(props: Props) {
     const self = this;
 
     return new Proxy(props, {
@@ -201,7 +201,7 @@ export default class Block<P extends Record<string, any> = any> {
 
       set(target, prop: string, value) {
         const oldTarget = {...target};
-        target[prop as keyof P] = value;
+        target[prop as keyof Props] = value;
         self.eventBus().emit(Block.EVENTS.FLOW_CDU, oldTarget, target);
         return true;
       },
