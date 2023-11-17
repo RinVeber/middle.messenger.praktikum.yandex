@@ -12,5 +12,3 @@ export {HomePage} from './home/index';
 export { ChatPage } from './chat';
 export { ProfilePage } from './profile';
 export { ErrorsPage } from './errors';
-
-
