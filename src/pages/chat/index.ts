@@ -1,11 +1,10 @@
 import template from './index.hbs';
 import Block from '../../libs/Block';
-import { Button, LinkButton, InputSearch } from '../../components';
+import { Button, LinkButton, InputSearch, MessageList } from '../../components';
 import { SendMessageForm, MessageWindow } from './components';
 import { ProfileDetails, Messages } from './types';
 import FormValidator from '../../libs/Validation';
 import { Routes } from '../../utils';
-import { MessageList } from '../../components';
 
 interface IChatPageProps {
   contentShow?: boolean;
