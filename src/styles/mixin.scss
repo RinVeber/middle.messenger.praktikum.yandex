@@ -4,23 +4,15 @@
   list-style: none;
 }
 
-
-@mixin border-radius($radius) {
-  -webkit-border-radius: $radius;
-     -moz-border-radius: $radius;
-      -ms-border-radius: $radius;
-          border-radius: $radius;
-}
-
 @mixin size($height, $width) {
-	height: $height;
-	width: $width;
+  height: $height;
+  width: $width;
 }
 
 @mixin text-format($font-weight, $font-size, $line-height) {
-	font-weight: $font-weight;
-	font-size: $font-size;
-	line-height: $line-height;
+  font-weight: $font-weight;
+  font-size: $font-size;
+  line-height: $line-height;
 }
 
 @mixin chat-input {
@@ -28,7 +20,6 @@
   background-color: $color-gray-300;
   padding: 10px 12px;
 }
-
 
 @mixin remove-scroll-bar {
   & {

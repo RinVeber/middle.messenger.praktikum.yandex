@@ -19,6 +19,7 @@
   &:disabled {
     border-bottom: 1px solid $color-gray-500;
   }
+  
   &__error-text {
     color: $color-red-500;
     font-size: 9px;

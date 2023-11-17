@@ -1,5 +1,5 @@
-@import '../../../../styles/variables.module.scss';
-@import '../../../../styles/mixin.scss';
+@import '../../../../styles/variables.module';
+@import '../../../../styles/mixin';
 
 .writer {
     display: flex;
@@ -10,6 +10,7 @@
   
     &__input {
       @include chat-input;
+
       border-radius: 20px;
       text-align: start;
   
