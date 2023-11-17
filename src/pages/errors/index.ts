@@ -31,7 +31,7 @@ export class ErrorsPage extends Block<IErrorsPageProps> {
     });
   }
 
-  render() {
+  render(): DocumentFragment {
     return this.compile(template, this.props);
   }
 }

@@ -31,7 +31,7 @@ export class RegisterPage extends Block<IRegisterPageProps> {
     });
   }
 
-  render() {
+  render(): DocumentFragment {
     return this.compile(template, this.props);
   }
 }

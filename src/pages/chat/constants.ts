@@ -3,7 +3,7 @@ import cameraPhoto2 from '../../assets/images/camera2.jpg';
 import cameraPhoto3 from '../../assets/images/camera3.jpg';
 
 const chatMock = {
-  profiles: [
+  messages: [
     {
       avatar: cameraPhoto,
       firstName: 'Андрей',

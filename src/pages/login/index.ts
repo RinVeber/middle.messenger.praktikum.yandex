@@ -34,7 +34,7 @@ export class LoginPage extends Block<ILoginPageProps> {
     });
   }
 
-  render() {
+  render(): DocumentFragment {
     return this.compile(template, this.props);
   }
 }

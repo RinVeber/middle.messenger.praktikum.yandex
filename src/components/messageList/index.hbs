@@ -1,14 +1,14 @@
-<ul class="chat__lside-list">
-  {{#each profiles}}
-    <li class="chat__lside-item">
-      <div class="profiles">
+<ul class="chat__message-list">
+  {{#each messages}}
+    <li class="chat__message-item">
+      <div class="message">
         {{#if avatar}}
-          <img class="profiles__avatar avatar" src="{{avatar}}"/>
+          <img class="message__avatar avatar" src="{{avatar}}"/>
           {{else}}
-          <div class="profiles__avatar avatar"></div>
+          <div class="message__avatar avatar"></div>
         {{/if}}
 
-        <p class="profiles__text message-info">
+        <p class="message__text message-info">
           <span class="message-info__name name">
             {{firstName}} {{lastName}}
           </span>
@@ -22,7 +22,7 @@
           </span>
         </p>
 
-        <div class="profiles__info info">
+        <div class="message__info info">
           <span class="info__time">
             {{date}}
           </span>
