@@ -1,0 +1,37 @@
+@import './styles/index';
+@import './components/index';
+@import './pages/index';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: $font-size-base;
+
+  @media (max-width: $md-breakpoint) {
+    font-size: $font-size-mob;
+  }
+}
+
+body {
+  font-family: $font-family-base;
+}
+
+ul {
+  @include reset-list;
+}
+
+a {
+  text-decoration: none;
+}
+
+.absolute {
+  position: absolute;
+  left: 0;
+  top: 0;
+}

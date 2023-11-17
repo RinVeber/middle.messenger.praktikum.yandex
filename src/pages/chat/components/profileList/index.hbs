@@ -1,0 +1,41 @@
+<ul class="chat__lside-list">
+  {{#each profiles}}
+    <li class="chat__lside-item">
+      <div class="profiles">
+        {{#if avatar}}
+          <img class="profiles__avatar avatar" src="{{avatar}}"/>
+          {{else}}
+          <div class="profiles__avatar avatar"></div>
+        {{/if}}
+
+        <p class="profiles__text message-info">
+          <span class="message-info__name name">
+            {{firstName}} {{lastName}}
+          </span>
+          <span class="message-info__description">
+            {{#if isMine}}
+            <span class="message-info__description--mine">
+              Вы:
+            </span>
+            {{/if}}
+            {{message}}
+          </span>
+        </p>
+
+        <div class="profiles__info info">
+          <span class="info__time">
+            {{date}}
+          </span>
+
+          {{#if count }}
+            <p class="info__count-wrapper">
+              <span class="info__count">
+                {{count}}
+              </span>
+            </p>
+          {{/if}}
+        </div>
+      </div>
+    </li>
+  {{/each}}
+</ul>

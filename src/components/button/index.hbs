@@ -1,0 +1,24 @@
+<button 
+  type="
+    {{#if type}}
+      {{type}}
+      {{else}}
+      click
+    {{/if}}
+  " 
+  class="
+    button 
+    {{#if secondary}}
+      button__secondary
+    {{/if}}
+    {{ class }}
+  "
+  {{#if disabled}} disabled {{/if}}
+  >
+    {{#if image}}
+      <img src={{{image.src}}} alt="{{{image.alt}}}">
+    {{/if}}
+    {{#if label}} 
+      {{{ label }}} 
+    {{/if}}
+</button>

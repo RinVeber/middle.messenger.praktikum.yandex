@@ -1,57 +1,47 @@
-import Handlebars from 'handlebars';
-import * as Components from './components';
-import * as Pages from './pages';
-import './scss/index.scss';
-import avatar from './images/Union.svg';
-import search from './images/search.svg';
+import "./index.scss";
+import * as dataPages from './pages/index';
+import Block from './libs/Block';
+import { Routes } from './utils';
+import './components';
 
-type PagesType =
-  | 'login'
-  | 'register'
-  | 'chat'
-  | 'not-found'
-  | 'server-error'
-  | 'profile'
-  | 'profile-change-password'
-  | 'profile-change-data';
-
-const pages = {
-  login: [Pages.LoginPage],
-  register: [Pages.RegisterPage],
-  chat: [Pages.ChatPage, { search: search, avatar_user: avatar }],
-  'not-found': [Pages.NotFoundPage],
-  'server-error': [Pages.ServerErrorPage],
-  profile: [Pages.ProfilePage, { avatar: avatar }],
-  'profile-change-password': [
-    Pages.ProfileChangePasswordPage,
-    { avatar: avatar },
-  ],
-  'profile-change-data': [Pages.ProfileChangeDataPage, { avatar: avatar }],
-};
-
-Object.entries(Components).forEach(([name, component]) => {
-  Handlebars.registerPartial(name, component);
-});
-
-function navigate(page: PagesType) {
-  const [source, context] = pages[page];
-  const container = document.getElementById('app')!;
-  container.innerHTML = Handlebars.compile(source)(context);
+function render(component: Block) {
+  const root = document.querySelector('#app');
+  root?.append(component.getContent()!);
+  component.dispatchComponentDidMount();
 }
 
-document.addEventListener('DOMContentLoaded', () => navigate('login'));
 
-document.addEventListener('click', (event) => {
-  const link = event.target as HTMLButtonElement;
-  const page = link.getAttribute('href') as PagesType;
+window.addEventListener('DOMContentLoaded', async () => {
+  const { href } = window.location;
+  const { origin } = window.location;
 
-  if (!page) {
-    return;
+  switch (href) {
+    case `${origin}${Routes.Main}`:
+      render(
+        new dataPages.HomePage(dataPages.navLinkListContext)
+      );
+      break;
+    case `${origin}${Routes.Login}`:
+      render(new dataPages.LoginPage(dataPages.loginContext));
+      break;
+    case `${origin}${Routes.Register}`:
+      render(new dataPages.RegisterPage(dataPages.registrationContext));
+      break;
+    case `${origin}${Routes.Chat}`:
+      render(new dataPages.ChatPage(dataPages.chatContext));
+      break;
+    case `${origin}${Routes.Profile}`:
+      render(
+        new dataPages.ProfilePage(dataPages.profileContext)
+      );
+      break;
+    case `${origin}${Routes.NotFound}`:
+      render(new dataPages.ErrorsPage(dataPages.statusErrorContext.notFound));
+      break;
+    case `${origin}${Routes.ServerError}`:
+      render(new dataPages.ErrorsPage(dataPages.statusErrorContext.serverError));
+      break;
+    default:
+      render(new dataPages.ErrorsPage(dataPages.statusErrorContext.notFound));
   }
-
-  if (page.length > 0) {
-    navigate(page);
-    event.preventDefault();
-    event.stopImmediatePropagation();
-  }
-});
+})
