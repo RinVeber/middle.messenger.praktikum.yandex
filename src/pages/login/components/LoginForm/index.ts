@@ -50,7 +50,7 @@ export class LoginForm extends Block<ILoginFormProps> {
 
     this.children.LoginButton = new Button({
       class:"login__button",
-      label:"Войти",
+      label:"Авторизоваться",
       type:"submit",
     })
 
@@ -58,7 +58,7 @@ export class LoginForm extends Block<ILoginFormProps> {
       class: "login__button",
       secondary: true,
       type: "button",
-      label: "Ещё не зарегистрированы?",
+      label: "Нет аккаунта?",
       events: {
         click: () => location.replace(`${Routes.Register}`),
       },

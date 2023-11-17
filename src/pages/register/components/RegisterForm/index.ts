@@ -123,7 +123,7 @@ export class RegisterForm extends Block<IRegisterFormProps> {
     this.children.LoginButton = new Button({
       class: "register__button",
       secondary: true,
-      label: "Войти",
+      label: "Вход",
       events: {
         click: () => location.replace(`${Routes.Login}`),
       },
