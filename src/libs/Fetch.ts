@@ -20,7 +20,7 @@ type Options = {
   
   function queryStringify(data: unknown): string {
     if (typeof data !== 'object') {
-      throw new Error('Это не объект');
+      throw new Error('Is not object');
     }
   
     let str: string = '';
@@ -140,4 +140,3 @@ type Options = {
     
     };
   }
- 
