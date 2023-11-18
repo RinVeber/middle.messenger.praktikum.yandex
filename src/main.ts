@@ -20,9 +20,9 @@ window.addEventListener('DOMContentLoaded', async () => {
     case `${origin}${Routes.Profile}`:
       render(new dataPages.ProfilePage(dataPages.profileContext));
       break;
-      case `${origin}${Routes.Chat}`:
-        render(new dataPages.ChatPage(dataPages.chatContext));
-        break;
+    case `${origin}${Routes.Chat}`:
+      render(new dataPages.ChatPage(dataPages.chatContext));
+      break;
     case `${origin}${Routes.NotFound}`:
       render(new dataPages.ErrorsPage(dataPages.statusErrorContext.notFound));
       break;
