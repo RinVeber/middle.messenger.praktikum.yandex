@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "start": "npm build && node server.js",
+    "start": "npm run build && node server.js",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "stylelint": "stylelint '**/*{.css,.scss}'",
