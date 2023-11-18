@@ -11,7 +11,7 @@ app.set("view engine", "hbs");
 
 app.use(express.static(resolve(__dirname, 'dist')));
 
-app.use('/*', (_, res) => {
+app.use('/', (_, res) => {
   res.sendFile(resolve(__dirname, 'dist/index.html'));
 });
 
@@ -20,5 +20,5 @@ app.get("*", (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`Example app listening on port: ${port}`)
 })
