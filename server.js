@@ -1,5 +1,7 @@
-const express = require('express');
-const path = require('path');
+import express from 'express';
+import { resolve } from 'path';
+
+const __dirname = resolve();
 
 const app = express()
 const port = 3000
@@ -7,14 +9,10 @@ const port = 3000
 	
 app.set("view engine", "hbs");
 
-app.use(express.static(path.join(__dirname, 'dist')));
-
-app.use('/', (_, res) => {
-  res.sendFile(path.join(__dirname, 'dist/index.html'));
-});
+app.use(express.static(resolve(__dirname, 'dist')));
 
 app.use('/*', (_, res) => {
-  res.set('Content-Security-Policy', "default-src 'none'");
+  res.sendFile(resolve(__dirname, 'dist/index.html'));
 });
 
 app.get("*", (req, res) => {
