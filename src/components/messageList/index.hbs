@@ -1,0 +1,41 @@
+<ul class="chat__message-list">
+  {{#each messages}}
+    <li class="chat__message-item">
+      <div class="message">
+        {{#if avatar}}
+          <img class="message__avatar avatar" src="{{avatar}}"/>
+          {{else}}
+          <div class="message__avatar avatar"></div>
+        {{/if}}
+
+        <p class="message__text message-info">
+          <span class="message-info__name name">
+            {{firstName}} {{lastName}}
+          </span>
+          <span class="message-info__description">
+            {{#if isMine}}
+            <span class="message-info__description--mine">
+              Вы:
+            </span>
+            {{/if}}
+            {{message}}
+          </span>
+        </p>
+
+        <div class="message__info info">
+          <span class="info__time">
+            {{date}}
+          </span>
+
+          {{#if count }}
+            <p class="info__count-wrapper">
+              <span class="info__count">
+                {{count}}
+              </span>
+            </p>
+          {{/if}}
+        </div>
+      </div>
+    </li>
+  {{/each}}
+</ul>

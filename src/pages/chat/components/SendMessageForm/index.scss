@@ -1,0 +1,53 @@
+@import '../../../../styles/variables.module';
+@import '../../../../styles/mixin';
+
+.writer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0;
+  
+    &__input {
+      @include chat-input;
+
+      border-radius: 20px;
+      text-align: start;
+  
+    }
+
+    &__label {
+        width: 90%;
+    }
+  
+    &__button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $color-light-blue-A800;
+      border: none;
+      border-radius: 50%;
+      height: 32px;
+      width: 36px;
+  
+      &--send {
+        &:hover {
+          background-color: $color-light-blue-A600;
+        }
+      }
+  
+      &--icon {
+        background: none;
+        cursor: pointer;
+        margin-right: 8px;
+  
+        & svg {
+          fill: $color-gray-700;
+        }
+  
+        &:hover svg {
+          fill: $color-gray-400;
+        }
+      }
+    }
+  }

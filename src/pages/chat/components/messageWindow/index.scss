@@ -1,0 +1,118 @@
+@import '../../../../styles/variables.module';
+@import '../../../../styles/mixin';
+
+.content {
+    display: flex;
+    flex-direction: column;
+    flex-basis: calc(100% - 240px);
+    justify-content: space-between;
+    padding: 9px 20px;
+    height: 100vh;
+  
+    &__header {
+      align-items: center;
+      border-bottom: thin solid $color-gray-300;
+      display: flex;
+      justify-content: space-between;
+      height: 56px;
+      padding-bottom: 10px;
+    }
+  
+    &__avatar {
+      margin-right: 9px;
+    }
+  
+    &__name {
+      margin-right: auto;
+      font-size: 13px;
+      font-weight: $font-weight-rare-medium;
+    }
+  
+  
+  
+    &__letters {
+      overflow-y: scroll;
+  
+      @include remove-scroll-bar;
+    }
+  
+    &__footer {
+      border-top: thin solid $color-gray-300;
+      display: flex;
+      height: 56px;
+      padding-top: 9px;
+    }
+  
+  }
+  
+  .letters {
+    &__date {
+      color: $color-gray-700;
+      font-size: 12px;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+  
+    &__list {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+  
+    &__block {
+      padding: 30px 0;
+    }
+  }
+  
+  .letter {
+    background-color: $color-gray-100;
+    border-radius: 9px;
+    flex-direction: column;
+    font-size: 12px;
+    min-width: 290px;
+    max-width: 450px;
+    position: relative;
+    width: fit-content;
+  
+    &__mine {
+      align-self: flex-end;
+      background-color: $color-blue-100;
+    }
+  
+    &__picture {
+      background: none;
+    }
+  
+    &__image {
+      width: 100%;
+  
+      &--only {
+        border: thin solid $color-gray-400;
+        border-radius: 8px;
+      }
+    }
+  
+    &__text {
+      display: block;
+      padding: 9px 10px 0;
+      word-wrap: break-word;
+    }
+  
+    &__time {
+      color: $color-gray-700;
+      display: block;
+      font-size: 9px;
+      text-align: right;
+      padding: 0 9px 9px;
+  
+      &--picture {
+        background-color: $color-gray-700;
+        border-radius: 50px;
+        bottom: 8px;
+        color: $color-white;
+        padding: 0 8px;
+        position: absolute;
+        right: 8px;
+      }
+    }
+  }
