@@ -14,7 +14,7 @@ app.use('/', (_, res) => {
 });
 
 app.use('/*', (_, res) => {
-  res.set('Content-Security-Policy', "default-src 'self'");
+  res.set('Content-Security-Policy', "default-src 'none'");
 });
 
 app.get("*", (req, res) => {
