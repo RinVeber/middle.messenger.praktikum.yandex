@@ -13,6 +13,10 @@ app.use('/', (_, res) => {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 
+app.use('/*', (_, res) => {
+  res.set('Content-Security-Policy', "default-src 'self'");
+});
+
 app.get("*", (req, res) => {
   res.status(404).send("404")
 })
