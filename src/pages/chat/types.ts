@@ -8,7 +8,7 @@ export type Profile = {
   isMine?: boolean,
 };
 
-export type Profiles = Profile[];
+export type Messages = Profile[];
 
 export type RangeMessages = {
   date: string,

@@ -14,7 +14,7 @@ export class MessageWindow extends Block<IMessageWindowProps> {
 
   init() {}
 
-  render() {
+  render(): DocumentFragment {
     return this.compile(template, this.props);
   }
 }

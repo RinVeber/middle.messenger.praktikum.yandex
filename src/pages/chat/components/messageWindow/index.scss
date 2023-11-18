@@ -74,12 +74,12 @@
     position: relative;
     width: fit-content;
   
-    &--mine {
+    &__mine {
       align-self: flex-end;
       background-color: $color-blue-100;
     }
   
-    &--picture {
+    &__picture {
       background: none;
     }
   

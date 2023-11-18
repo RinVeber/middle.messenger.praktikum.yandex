@@ -1,14 +1,14 @@
 import template from './index.hbs';
 import Block from '../../libs/Block';
-import { Button, LinkButton, InputSearch } from '../../components';
-import { SendMessageForm, MessageWindow, ProfileList } from './components';
-import { ProfileDetails, Profiles } from './types';
+import { Button, LinkButton, InputSearch, MessageList } from '../../components';
+import { SendMessageForm, MessageWindow } from './components';
+import { ProfileDetails, Messages } from './types';
 import FormValidator from '../../libs/Validation';
 import { Routes } from '../../utils';
 
 interface IChatPageProps {
   contentShow?: boolean;
-  profiles: Profiles,
+  messages: Messages,
   profileDetails: ProfileDetails,
 }
 
@@ -42,8 +42,8 @@ export class ChatPage extends Block<IChatPageProps> {
       name: "search",
     });
 
-    this.children.ProfileList = new ProfileList({
-      profiles: this.props.profiles,
+    this.children.MessageList = new MessageList({
+      messages: this.props.messages,
     });
 
     this.children.MessageWindow = new MessageWindow({
@@ -66,7 +66,7 @@ export class ChatPage extends Block<IChatPageProps> {
 
   }
 
-  render() {
+  render(): DocumentFragment {
     return this.compile(template, this.props);
   }
 }

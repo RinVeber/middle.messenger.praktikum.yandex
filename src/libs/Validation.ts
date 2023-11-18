@@ -73,20 +73,20 @@ class FormValidator {
 
   private _validateName(input: HTMLInputElement): boolean {
     const regExp = new RegExp(/^[а-яА-ЯёЁa-zA-Z-]+$/, 'g');
-    const errorEl = (input.parentNode as HTMLElement).querySelector(
+    const errorElement = (input.parentNode as HTMLElement).querySelector(
       '.input__error-text',
     ) as HTMLElement;
 
-    errorEl.textContent = '';
+    errorElement.textContent = '';
 
     if (input.value === '') {
-      errorEl.textContent = 'Поле не должно быть пустым';
+      errorElement.textContent = 'Поле не должно быть пустым';
       return false;
     } else if (input.value[0] !== input.value[0].toUpperCase()) {
-      errorEl.textContent = 'Первая буква должна быть заглавной';
+      errorElement.textContent = 'Первая буква должна быть заглавной';
       return false;
     } else if (!regExp.test(input.value)) {
-      errorEl.textContent = 'Разрешены символы латиницы или кириллицы';
+      errorElement.textContent = 'Разрешены символы латиницы или кириллицы';
       return false;
     }
 
@@ -96,26 +96,26 @@ class FormValidator {
   private _validateLogin(input: HTMLInputElement): boolean {
     const regExp = new RegExp(/^[a-zA-Z0-9-_]*$/);
 
-    const errorEl = (input.parentNode as HTMLElement).querySelector(
+    const errorElement = (input.parentNode as HTMLElement).querySelector(
       '.input__error-text',
     ) as HTMLElement;
 
-    errorEl.textContent = '';
+    errorElement.textContent = '';
 
     if (input.value.length < 3 || input.value.length > 20) {
-      errorEl.textContent = 'Логин должен быть от 3 до 20 символов';
+      errorElement.textContent = 'Логин должен быть от 3 до 20 символов';
 
       return false;
     } else if (!/[^0-9]/.test(input.value)) {
-      errorEl.textContent = 'Логин не может состоять только из чисел';
+      errorElement.textContent = 'Логин не может состоять только из чисел';
 
       return false;
     } else if (input.value.includes(' ')) {
-      errorEl.textContent = 'Логин не может содержать пробелы';
+      errorElement.textContent = 'Логин не может содержать пробелы';
     }
 
     if (!regExp.test(input.value)) {
-      errorEl.textContent = 'Не допустимые символы';
+      errorElement.textContent = 'Не допустимые символы';
 
       return false;
     }
@@ -128,14 +128,14 @@ class FormValidator {
       /^([a-zA-Z0-9_.\-+])+@(([a-zA-Z0-9-])+\.)+([a-zA-Z]{2,4})+$/,
       'gi',
     );
-    const errorEl = (input.parentNode as HTMLElement).querySelector(
+    const errorElement = (input.parentNode as HTMLElement).querySelector(
       '.input__error-text',
     ) as HTMLElement;
 
-    errorEl.textContent = '';
+    errorElement.textContent = '';
 
     if (!regExp.test(input.value)) {
-      errorEl.textContent = 'Не валидный email';
+      errorElement.textContent = 'Не валидный email';
 
       return false;
     }
@@ -146,20 +146,20 @@ class FormValidator {
   private _validatePassword(input: HTMLInputElement): boolean {
     const regExp = new RegExp(/((?=.*\d)(?=.*[a-z])(?=.*[A-Z]))/);
 
-    const errorEl = (input.parentNode as HTMLElement).querySelector(
+    const errorElement = (input.parentNode as HTMLElement).querySelector(
       '.input__error-text',
     ) as HTMLElement;
 
-    errorEl.textContent = '';
+    errorElement.textContent = '';
 
     if (input.value.length < 8 || input.value.length > 40) {
-      errorEl.textContent = 'Пароль должен содержать от 8 до 40 символов';
+      errorElement.textContent = 'Пароль должен содержать от 8 до 40 символов';
 
       return false;
     }
 
     if (!regExp.test(input.value)) {
-      errorEl.textContent = 'Не корректный пароль';
+      errorElement.textContent = 'Не корректный пароль';
 
       return false;
     }
@@ -170,14 +170,14 @@ class FormValidator {
   private _validatePhone(input: HTMLInputElement): boolean {
     const regExp = new RegExp(/^(\+)?(\d){10,14}/);
 
-    const errorEl = (input.parentNode as HTMLElement).querySelector(
+    const errorElement = (input.parentNode as HTMLElement).querySelector(
       '.input__error-text',
     ) as HTMLElement;
 
-    errorEl.textContent = '';
+    errorElement.textContent = '';
 
     if (!regExp.test(input.value)) {
-      errorEl.textContent = 'Не верный формат номера';
+      errorElement.textContent = 'Не верный формат номера';
 
       return false;
     }

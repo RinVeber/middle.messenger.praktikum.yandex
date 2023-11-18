@@ -1,40 +1,41 @@
-<section class="chat">
-  {{{ BackLinkButton }}}
-  
-  <div class="chat__lside">
-    <header class="chat__lside-header">
-      {{{ ProfileButton }}}
+<section class='chat'>
+  {{{BackLinkButton}}}
 
-      {{{ SearchInput }}}
+  <div class='chat__lside'>
+    <header class='chat__lside-header'>
+      {{{ProfileButton}}}
+
+      {{{SearchInput}}}
     </header>
 
-    {{{ ProfileList }}}
+    {{{MessageList}}}
   </div>
-  
+
   {{#if contentShow}}
-    <div class="chat__content content">
-      <div class="content__header">
+    <div class='chat__content content'>
+      <div class='content__header'>
         {{#if profileDetails.avatar}}
-          <img class="content__avatar avatar" src="{{profileDetails.avatar}}"/>
-            {{else}}
-          <div class="content__avatar avatar">
+          <img class='content__avatar avatar' src='{{profileDetails.avatar}}' />
+        {{else}}
+          <div class='content__avatar avatar'>
           </div>
         {{/if}}
 
-        <span class="content__name name">
-          {{profileDetails.firstName}} {{profileDetails.lastName}}
+        <span class='content__name name'>
+          {{profileDetails.firstName}}
+          {{profileDetails.lastName}}
         </span>
 
-        {{{ MoreButton }}}
+        {{{MoreButton}}}
       </div>
-      
-      {{{ MessageWindow }}}
 
-      <div class="content__footer">
+      {{{MessageWindow}}}
+
+      <div class='content__footer'>
         {{{SendMessageForm}}}
       </div>
     </div>
   {{else}}
-    {{{ ChatPlug }}}
+    <div class='chat__clear'>Нету сообщений</div>
   {{/if}}
 </section>
