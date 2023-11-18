@@ -2,31 +2,6 @@ import './index.scss';
 import * as dataPages from './pages/index';
 import { Routes } from './utils';
 import render from './utils/renderDOM';
-// import { BASE_URL, HOME, CHATS, LOGIN , REGISTER, PROFILE, ERROR404, ERROR500 } from './utils/constants/routes';
-
-// const path = window.location.pathname;
-
-// function replacePath() {
-//   return window.location.replace(`${BASE_URL}${HOME}`);
-// }
-
-// if (path === "/") {
-//   replacePath();
-// } else if (path === ERROR404) {
-//   render(new dataPages.ErrorsPage(dataPages.statusErrorContext.notFound));
-// } else if (path === ERROR500) {
-//   render(
-//     new dataPages.ErrorsPage(dataPages.statusErrorContext.serverError),
-//   );
-// } else if (path === LOGIN) {
-//   render(new dataPages.LoginPage(dataPages.loginContext));
-// } else if (path === REGISTER) {
-//   render(new dataPages.RegisterPage(dataPages.registrationContext));
-// } else if (path === PROFILE) {
-//   render(new dataPages.ProfilePage(dataPages.profileContext));
-// } else if (path === CHATS) {
-//   render(new dataPages.ChatPage(dataPages.chatContext));
-// }
 
 window.addEventListener('DOMContentLoaded', async () => {
   const { origin, href } = window.location;
