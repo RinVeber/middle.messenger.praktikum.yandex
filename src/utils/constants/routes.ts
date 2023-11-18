@@ -10,10 +10,10 @@ export enum Routes {
 
 
 export const BASE_URL = window.origin;
+export const HOME = '/';
 export const LOGIN = "/login";
 export const REGISTER = "/register";
-export const PROFILE_SETTING = "/profile-setting";
-export const PASSWORD_SETTING = "/profile-password";
+export const PROFILE = "/profile";
 export const CHATS = "/chat";
 export const ERROR404 = "/not-found";
 export const ERROR500 = "/server-error";
