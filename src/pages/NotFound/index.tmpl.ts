@@ -1,4 +1,4 @@
-import './index.scss'
+import './index.scss';
 
 const template = () => `
 <div class="error">

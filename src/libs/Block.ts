@@ -76,9 +76,6 @@ class Block<P extends Record<string, any> = any> {
     });
   }
 
-
-
-
   private _registerEvents(eventBus: EventBus) {
     eventBus.on(Block.EVENTS.INIT, this._init.bind(this));
     eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
@@ -89,7 +86,7 @@ class Block<P extends Record<string, any> = any> {
   }
 
   _createResources() {
-    const tagName = "div";
+    const tagName = 'div';
     this._element = this._createDocumentElement(tagName);
   }
 

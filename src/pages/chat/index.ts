@@ -1,9 +1,9 @@
 import template from './index.tmpl';
 import Block from '../../libs/Block';
-import './index.scss'
+import './index.scss';
 import LinkButton from '../../components/LinkButton';
 import Button from '../../components/Button';
-import { MessageList } from './MessageList';
+import { MessageList } from '../../components/MessageList';
 import ChatForm from './ChatForm';
 import ChatController from '../../controllers/chatController';
 import IconButton from '../../components/IconButton';
@@ -22,7 +22,7 @@ import { InputSearch } from '../../components/SearchInput';
 import AvatarInput from '../../components/AvatarInput';
 import UserController from '../../controllers/userController';
 
- class Chat extends Block {
+class Chat extends Block {
   ws: WSTransport | undefined;
   chatToken: string = '';
 
@@ -39,17 +39,17 @@ import UserController from '../../controllers/userController';
       text: 'Профиль',
     });
     this.children.inputSearch = new InputSearch({
-      id: "search",
-      class: "chat__input-search",
-      type: "text",
-      name: "search",
+      id: 'search',
+      class: 'chat__input-search',
+      type: 'text',
+      name: 'search',
     });
 
     this.children.MoreButton = new Button({
       type: 'button',
       variant: 'secondary',
-      label: '....'
-    })
+      label: '....',
+    });
     this.children.SendMessageForm = new ChatForm({
       submit: (values: any) => {
         this.ws?.send({
@@ -67,7 +67,6 @@ import UserController from '../../controllers/userController';
     this.children.deleteUserModal = new DeleteUserModal({
       isShow: false,
     });
-
 
     this.children.createChatButton = new IconButton({
       variant: 'icon',
@@ -94,7 +93,6 @@ import UserController from '../../controllers/userController';
         },
       },
     });
-
 
     this.children.addUserButton = new IconButton({
       iconUrl: userAdd,
@@ -133,28 +131,31 @@ import UserController from '../../controllers/userController';
   protected componentDidMount(): void {
     store.on(StoreEvents.Update, (value: IState) => {
       if (value.chats) {
-        this.children.chatModals = value.chats?.map((chat, i) => new MessageList({
-          ...chat,
-          active: chat.id === this.props.activeModal,
-          events: {
-            click: (event) => {
-              if ((event.target as HTMLElement).localName !== 'label') {
-                this.setProps({ activeModal: chat.id });
-                (this.children.chatModals as Block[])[i].setProps({
-                  active: true,
-                });
-                (this.children.addUserButton as Block).setProps({
-                  disabled: false,
-                });
-                (this.children.removeUserButton as Block).setProps({
-                  disabled: false,
-                });
-                store.setState('chatId', chat.id);
-                this.chatConnect(chat.id);
-              }
-            },
-          },
-        }));
+        this.children.chatModals = value.chats?.map(
+          (chat, i) =>
+            new MessageList({
+              ...chat,
+              active: chat.id === this.props.activeModal,
+              events: {
+                click: (event) => {
+                  if ((event.target as HTMLElement).localName !== 'label') {
+                    this.setProps({ activeModal: chat.id });
+                    (this.children.chatModals as Block[])[i].setProps({
+                      active: true,
+                    });
+                    (this.children.addUserButton as Block).setProps({
+                      disabled: false,
+                    });
+                    (this.children.removeUserButton as Block).setProps({
+                      disabled: false,
+                    });
+                    store.setState('chatId', chat.id);
+                    this.chatConnect(chat.id);
+                  }
+                },
+              },
+            }),
+        );
       }
 
       if (value.chatToken && value.chatToken !== this.chatToken) {
@@ -162,33 +163,45 @@ import UserController from '../../controllers/userController';
         if (this.ws) {
           this.ws.close();
         }
-        this.ws = new WSTransport(`/chats/${value.user?.id}/${value.chatId}/${value.chatToken}`);
-        this.ws.connected().then(() => {
-          this.ws?.send({
-            content: '0',
-            type: 'get old',
+        this.ws = new WSTransport(
+          `/chats/${value.user?.id}/${value.chatId}/${value.chatToken}`,
+        );
+        this.ws
+          .connected()
+          .then(() => {
+            this.ws?.send({
+              content: '0',
+              type: 'get old',
+            });
+          })
+          .catch((e) => {
+            console.error(e);
           });
-        }).catch((e) => {
-          console.error(e);
-        });
         this.ws.on(WebSoketEvents.Message, (message) => {
           if (Array.isArray(message)) {
             store.setState('messages', message.reverse());
           } else {
-            store.setState('messages', (store.getState().messages || [])?.concat(message));
+            store.setState(
+              'messages',
+              (store.getState().messages || [])?.concat(message),
+            );
           }
         });
       }
 
       if (value.messages) {
-        this.children.messages = value.messages?.map((message: any) => (
-          new Message({
-            text: message.content,
-            isCurrentUser: message.user_id === this.props.user.id,
-          })));
+        this.children.messages = value.messages?.map(
+          (message: any) =>
+            new Message({
+              text: message.content,
+              isCurrentUser: message.user_id === this.props.user.id,
+            }),
+        );
         const timeoutId = setTimeout(() => {
-          if (window.document.getElementById('chatsList')
-            && window.document.getElementById('chatsList')?.scrollHeight) {
+          if (
+            window.document.getElementById('chatsList') &&
+            window.document.getElementById('chatsList')?.scrollHeight
+          ) {
             window.document.getElementById('chatsList')?.scrollTo({
               top: window.document.getElementById('chatsList')?.scrollHeight,
             });
@@ -212,4 +225,4 @@ const withStateToProps = (state: IState) => ({
   messages: state.messages,
 });
 
-export const ChatPage =  withStore(withStateToProps)(Chat);
+export const ChatPage = withStore(withStateToProps)(Chat);

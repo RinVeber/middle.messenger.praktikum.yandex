@@ -1,7 +1,7 @@
-import Block from '../../../libs/Block';
+import Block from '../../libs/Block';
 import template from './index.tmpl';
-import { AvatarInput } from '../../../components';
-import ChatController from '../../../controllers/chatController';
+import AvatarInput from '../AvatarInput';
+import ChatController from '../../controllers/chatController';
 
 export interface IMessageList {
   name: string;

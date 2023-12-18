@@ -1,7 +1,7 @@
 import Block from '../../libs/Block';
 import LinkButton from '../../components/LinkButton';
 import Routes from '../../utils/constants';
-import template from './index.tmpl'
+import template from './index.tmpl';
 
 export class NotFoundPage extends Block {
   constructor() {

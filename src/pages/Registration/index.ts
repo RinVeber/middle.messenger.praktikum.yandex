@@ -41,12 +41,15 @@ export class RegisterPage extends Block {
             });
           }
         },
-      }
+      },
     });
   }
 
   protected render(): DocumentFragment {
-    return this.compile(`<section class="register"><div class="register__container">{{{RegisterForm}}}</div></section>`, this.props);
+    return this.compile(
+      `<section class="register"><div class="register__container">{{{RegisterForm}}}</div></section>`,
+      this.props,
+    );
   }
 }
 

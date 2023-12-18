@@ -13,7 +13,10 @@ class ProfileComponent extends Block {
   }
 
   protected render(): DocumentFragment {
-    return this.compile('<section class="profile">{{{form}}}</section>', this.props);
+    return this.compile(
+      '<section class="profile">{{{form}}}</section>',
+      this.props,
+    );
   }
 }
 

@@ -24,7 +24,6 @@ class Router {
   }
 
   public start() {
-    // Реагируем на изменения в адресной строке и вызываем перерисовку
     window.onpopstate = (event: PopStateEvent) => {
       if (event.currentTarget) {
         this._onRoute((event.currentTarget as Window).location.pathname);

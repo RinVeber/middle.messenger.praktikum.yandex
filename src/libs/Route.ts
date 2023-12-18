@@ -8,7 +8,7 @@ function render(rootQuery: string, block: Block) {
   const root = document.querySelector(rootQuery);
 
   if (root === null) {
-    throw new Error(`root not found by selector "${rootQuery}"`);
+    throw new Error(`not root selector"${rootQuery}"`);
   }
 
   root.innerHTML = '';

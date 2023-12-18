@@ -41,7 +41,7 @@ export class LoginPage extends Block {
             });
           }
         },
-      }
+      },
     });
   }
 

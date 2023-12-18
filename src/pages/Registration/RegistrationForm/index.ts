@@ -4,16 +4,20 @@ import Input from '../../../components/Input';
 import Button from '../../../components/Button';
 import Form from '../../../components/Form';
 import {
-  required, validateEmail, validateLogin, validateName, validatePassword, validatePhone,
+  required,
+  validateEmail,
+  validateLogin,
+  validateName,
+  validatePassword,
+  validatePhone,
 } from '../../../utils/validate';
 import AuthController from '../../../controllers/authController';
 import { ISignupData } from '../../../api/authApi';
 import router from '../../../libs/Router';
 import Routes from '../../../utils/constants';
 
-
 interface IRegisterFormProps {
-  class?: string; 
+  class?: string;
   action?: string;
   method?: string;
   onSubmit?: (event: HTMLFormElement) => void;
@@ -21,13 +25,13 @@ interface IRegisterFormProps {
   events?: {
     submit?: (event: HTMLFormElement) => void;
     focusout?: (event: HTMLFormElement) => void;
-  }
+  };
 }
 
 class RegistrationForm extends Form {
   constructor(props: IRegisterFormProps) {
     super(props);
-  } 
+  }
   init(): void {
     this.children.title = new Title({ text: 'Регистрация' });
     this.children.inputLogin = new Input({

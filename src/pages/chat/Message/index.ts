@@ -1,6 +1,6 @@
-import {IStylesBlock} from '../../../types';
+import { IStylesBlock } from '../../../types';
 import Block from '../../../libs/Block';
-import  './index.scss';
+import './index.scss';
 
 interface MessageProps {
   text: string;
@@ -17,7 +17,10 @@ class Message extends Block<IStylesBlock<MessageProps>> {
   }
 
   render() {
-    return this.compile('<div class={{class}}><span class={{styleText}}>{{text}}</span><div>', this.props);
+    return this.compile(
+      '<div class={{class}}><span class={{styleText}}>{{text}}</span><div>',
+      this.props,
+    );
   }
 }
 

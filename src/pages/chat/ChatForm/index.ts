@@ -11,7 +11,6 @@ interface ChatFormModel {
   message: string;
 }
 
-
 class ChatForm extends Form {
   init(): void {
     this.children.inputMessage = new Input({

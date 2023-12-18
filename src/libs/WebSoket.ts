@@ -85,8 +85,7 @@ class WSTransport extends EventBus {
           return;
         }
         this.emit(WebSoketEvents.Message, data);
-      } catch (e) {
-      }
+      } catch (e) {}
     });
   }
 }

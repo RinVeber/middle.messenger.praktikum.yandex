@@ -40,7 +40,7 @@ export abstract class Modal extends Block {
 
   render() {
     return this.compile(`<div>
-      <div class="modal">
+      <div class="popup">
         {{{closeButton}}}
         ${this.renderModal()}
       </div>
