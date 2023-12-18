@@ -14,6 +14,6 @@ const template = () => `
 
 </label>
 
-`
+`;
 
 export default template;

@@ -1,4 +1,4 @@
-import {IStylesBlock} from '../../types';
+import { IStylesBlock } from '../../types';
 import Block from '../../libs/Block';
 import './index.scss';
 

@@ -16,7 +16,10 @@ export interface ImageInputProps {
 
 export class ImageInput extends Block<ImageInputProps> {
   render() {
-    return this.compile(`<input class="image__container" id="{{name}}" name="{{name}}" type="file" />`, this.props);
+    return this.compile(
+      `<input class="image__container" id="{{name}}" name="{{name}}" type="file" />`,
+      this.props,
+    );
   }
 }
 

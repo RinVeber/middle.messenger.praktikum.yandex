@@ -1,4 +1,4 @@
-import {IStylesBlock} from '../../types';
+import { IStylesBlock } from '../../types';
 import Block from '../../libs/Block';
 import InputError from './Error';
 import InputField from './InputField';
@@ -12,7 +12,7 @@ interface InputProps {
   events?: {
     focus?: () => void;
     blur?: () => void;
-  }
+  };
   validate?: (value: string) => string;
 }
 
@@ -21,7 +21,7 @@ export class Input extends Block<IStylesBlock<InputProps>> {
 
   constructor(props: InputProps) {
     super({
-      ...props
+      ...props,
     });
   }
 

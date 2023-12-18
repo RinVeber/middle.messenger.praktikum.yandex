@@ -7,8 +7,8 @@ interface IInputSearchProps {
   id: string;
   value?: string;
   type: string;
-  name: string 
-  required?: boolean; 
+  name: string;
+  required?: boolean;
   disabled?: boolean;
   readonly?: boolean;
   pattern?: RegExp;
@@ -16,7 +16,7 @@ interface IInputSearchProps {
   events?: {
     change?: () => void;
     focusout?: (event: HTMLFormElement) => void;
-  }
+  };
 }
 
 export class InputSearch extends Block {
@@ -25,6 +25,6 @@ export class InputSearch extends Block {
   }
 
   render() {
-    return this.compile(template(), this.props)
+    return this.compile(template(), this.props);
   }
 }

@@ -1,6 +1,6 @@
-import {IStylesBlock} from '../../types';
+import { IStylesBlock } from '../../types';
 import Block from '../../libs/Block';
-import './index.scss'
+import './index.scss';
 
 export interface ButtonProps {
   label: string;
@@ -21,13 +21,16 @@ export class Button extends Block<IStylesBlock<ButtonProps>> {
   }
 
   render() {
-    return this.compile(`<button
+    return this.compile(
+      `<button
       class="{{class}}"
       type="{{type}}"
       {{#if disabled}}
         disabled
       {{/if}}
-    >{{label}}</button>`, this.props);
+    >{{label}}</button>`,
+      this.props,
+    );
   }
 }
 

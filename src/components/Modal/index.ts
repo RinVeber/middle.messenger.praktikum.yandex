@@ -1,8 +1,8 @@
 import Block from '../../libs/Block';
 import isEqual from '../../libs/helperFunction/isEqual';
-import closeIcon from '../../assets/icons/close.svg'
+import closeIcon from '../../assets/icons/close.svg';
 import IconButton from '../IconButton';
-import  './index.scss';
+import './index.scss';
 
 interface IModalProps {
   isShow: boolean;
@@ -39,12 +39,15 @@ export abstract class Modal extends Block {
   }
 
   render() {
-    return this.compile(`<div>
+    return this.compile(
+      `<div>
       <div class="popup">
         {{{closeButton}}}
         ${this.renderModal()}
       </div>
-    </div>`, this.props);
+    </div>`,
+      this.props,
+    );
   }
 }
 

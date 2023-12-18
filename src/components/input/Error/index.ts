@@ -1,6 +1,6 @@
-import {IStylesBlock} from '../../../types';
+import { IStylesBlock } from '../../../types';
 import Block from '../../../libs/Block';
-import './index.scss'
+import './index.scss';
 
 interface InputErrorProps {
   text: string;
@@ -12,7 +12,10 @@ class InputError extends Block<IStylesBlock<InputErrorProps>> {
   }
 
   render() {
-    return this.compile('<span class="error__text">{{text}}</span>', this.props);
+    return this.compile(
+      '<span class="error__text">{{text}}</span>',
+      this.props,
+    );
   }
 }
 

@@ -1,21 +1,21 @@
 .standard {
-    border: none;
-    border-bottom: 1px solid  #3369f3;;
-    width: 100%;
-    outline: none;
-    padding: 3px 0;
+  border: none;
+  border-bottom: 1px solid #3369f3;
+  width: 100%;
+  outline: none;
+  padding: 3px 0;
 }
 
 .custom {
-    border: none;
-    border-radius: 5px;
-    width: 100%;
-    outline: none;
-    padding: 6px 3px;
-    background: #efefef;
-    box-sizing: border-box;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  outline: none;
+  padding: 6px 3px;
+  background: #efefef;
+  box-sizing: border-box;
 }
 
 .custom::placeholder {
-    text-align: left;
+  text-align: left;
 }

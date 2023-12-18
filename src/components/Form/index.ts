@@ -48,7 +48,10 @@ export abstract class Form extends Block {
   abstract renderForm(): string;
 
   render() {
-    return this.compile(`<form class='form'>${this.renderForm()}</form>`, this.props);
+    return this.compile(
+      `<form class='form'>${this.renderForm()}</form>`,
+      this.props,
+    );
   }
 }
 

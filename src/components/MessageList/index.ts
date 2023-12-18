@@ -10,7 +10,7 @@ export interface IMessageList {
   active?: boolean;
   events?: {
     click: (event: Event) => void;
-  }
+  };
 }
 
 export class MessageList extends Block<IMessageList> {
