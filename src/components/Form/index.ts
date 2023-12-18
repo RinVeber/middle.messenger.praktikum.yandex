@@ -1,5 +1,5 @@
 import Block from '../../libs/Block';
-import Input from '../Input/index';
+import Input from '../Input/index.ts';
 import './index.scss';
 
 export abstract class Form extends Block {
