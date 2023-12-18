@@ -51,8 +51,8 @@ class ChatController {
     try {
       await chatApi.updateAvatar(data);
       await this.getChats();
-    } catch (e) {
-      console.error(e);
+    } catch (error) {
+      console.error(error);
     }
   }
 }

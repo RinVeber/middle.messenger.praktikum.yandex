@@ -3,7 +3,7 @@ import Block from '../../libs/Block';
 import './index.scss';
 import LinkButton from '../../components/LinkButton';
 import Button from '../../components/Button';
-import { MessageList } from '../../components/MessageList';
+import { MessageList } from './MessageList';
 import ChatForm from './ChatForm';
 import ChatController from '../../controllers/chatController';
 import IconButton from '../../components/IconButton';
@@ -21,6 +21,9 @@ import Routes from '../../utils/constants';
 import { InputSearch } from '../../components/SearchInput';
 import AvatarInput from '../../components/AvatarInput';
 import UserController from '../../controllers/userController';
+import { groupMessagesByDay } from '../../utils/dateTransform';
+import { MessageType } from '../../utils/apiTransform';
+import { AvatarDefault } from '../../components';
 
 class Chat extends Block {
   ws: WSTransport | undefined;
@@ -29,10 +32,13 @@ class Chat extends Block {
   constructor() {
     super({
       activeModal: null,
+      // avatar: store.getState() ? avatar : defaultAvatar
     });
   }
 
   init(): void {
+    const st = store.getState();
+    console.log(st);
     this.children.linkProfile = new LinkButton({
       href: Routes.Profile,
       color: 'primary',
@@ -130,17 +136,28 @@ class Chat extends Block {
 
   protected componentDidMount(): void {
     store.on(StoreEvents.Update, (value: IState) => {
+
+      this.children.avatar = new AvatarDefault({
+        avatar: store.getState().chatAvatar
+      })
+
+      
       if (value.chats) {
+      
         this.children.chatModals = value.chats?.map(
-          (chat, i) =>
+          (chat, index) =>
             new MessageList({
               ...chat,
+              avatarChat: chat.avatar,
+              lastMessage: chat.last_message ? chat.last_message.content : '',
+              time: chat.last_message ? chat.last_message.time : '',
               active: chat.id === this.props.activeModal,
+              unreadCount: chat.unread_count,
               events: {
                 click: (event) => {
                   if ((event.target as HTMLElement).localName !== 'label') {
                     this.setProps({ activeModal: chat.id });
-                    (this.children.chatModals as Block[])[i].setProps({
+                    (this.children.chatModals as Block[])[index].setProps({
                       active: true,
                     });
                     (this.children.addUserButton as Block).setProps({
@@ -150,6 +167,7 @@ class Chat extends Block {
                       disabled: false,
                     });
                     store.setState('chatId', chat.id);
+                    store.setState('chatAvatar', chat.avatar);
                     this.chatConnect(chat.id);
                   }
                 },
@@ -174,8 +192,8 @@ class Chat extends Block {
               type: 'get old',
             });
           })
-          .catch((e) => {
-            console.error(e);
+          .catch((error) => {
+            console.error(error);
           });
         this.ws.on(WebSoketEvents.Message, (message) => {
           if (Array.isArray(message)) {
@@ -188,16 +206,22 @@ class Chat extends Block {
           }
         });
       }
+    
 
       if (value.messages) {
+        const dayByGroupMessages = groupMessagesByDay(value.messages as unknown as MessageType[]);
+        console.log(dayByGroupMessages);
+
         this.children.messages = value.messages?.map(
           (message: any) =>
             new Message({
               text: message.content,
+              time: message.time,
               isCurrentUser: message.user_id === this.props.user.id,
+              nameUser: ''
             }),
         );
-        const timeoutId = setTimeout(() => {
+        const downScroll = setTimeout(() => {
           if (
             window.document.getElementById('chatsList') &&
             window.document.getElementById('chatsList')?.scrollHeight
@@ -206,16 +230,19 @@ class Chat extends Block {
               top: window.document.getElementById('chatsList')?.scrollHeight,
             });
           }
-          clearTimeout(timeoutId);
+          clearTimeout(downScroll);
         });
       }
     });
     ChatController.getChats();
+    const currentChat = store.getState();
+    console.log(currentChat)
   }
 
   protected render(): DocumentFragment {
     return this.compile(template(), this.props);
   }
+
 }
 
 const withStateToProps = (state: IState) => ({

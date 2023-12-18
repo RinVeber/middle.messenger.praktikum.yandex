@@ -8,7 +8,7 @@ function merge(lhs: Indexed, rhs: Indexed): Indexed {
       } else {
         lhs[p] = rhs[p];
       }
-    } catch (e) {
+    } catch (error) {
       lhs[p] = rhs[p];
     }
   });

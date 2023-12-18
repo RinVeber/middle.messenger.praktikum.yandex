@@ -13,6 +13,7 @@ import store from './libs/Store';
 
 //   registerComponent(name, componentLc);
 // });
+let currentPathname = window.location.pathname;
 
 window.addEventListener('DOMContentLoaded', async () => {
   let isProtectedRoute = true;
@@ -28,12 +29,11 @@ window.addEventListener('DOMContentLoaded', async () => {
     .use(Routes.NotFound, Pages.NotFoundPage)
     .use(Routes.ErrorPage, Pages.ErrorPage);
 
-  switch (window.location.pathname) {
-    case Routes.Login:
-    case Routes.Register:
-      isProtectedRoute = false;
-      break;
-    default:
+  if (
+    user &&
+    (currentPathname == Routes.Login || currentPathname == Routes.Register)
+  ) {
+    router.go(Routes.Chat);
   }
 
   if (
@@ -46,7 +46,6 @@ window.addEventListener('DOMContentLoaded', async () => {
   if (!Object.values(Routes).includes(window.location.pathname as Routes)) {
     router.start();
     router.go(Routes.NotFound);
-
     return;
   }
 

@@ -51,7 +51,7 @@ export type Chat = {
   lastMessage: string;
 }
 
-export type Message = {
+export type MessageType = {
   id: number;
   userId: number;
   chatId: number;
@@ -99,7 +99,7 @@ export const transformChats = (data: ChatTransform[]): Chat[] => {
   })
 };
 
-export const transformMessages = (data: MessageTransform[]): Message[] => {
+export const transformMessages = (data: MessageTransform[]): MessageType[] => {
   return data.map(message => {
     return {
       id: message.id,
@@ -114,7 +114,7 @@ export const transformMessages = (data: MessageTransform[]): Message[] => {
   })
 }
 
-export const transformMessage = (message: MessageTransform): Message => {
+export const transformMessage = (message: MessageTransform): MessageType => {
   return {
     id: message.id,
     userId: message.user_id,

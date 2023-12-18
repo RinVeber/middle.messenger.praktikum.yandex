@@ -74,8 +74,8 @@ class WSTransport extends EventBus {
       this.emit(WebSoketEvents.Close);
     });
 
-    socket.addEventListener('error', (e) => {
-      this.emit(WebSoketEvents.Error, e);
+    socket.addEventListener('error', (error) => {
+      this.emit(WebSoketEvents.Error, error);
     });
 
     socket.addEventListener('message', (message) => {
@@ -85,7 +85,7 @@ class WSTransport extends EventBus {
           return;
         }
         this.emit(WebSoketEvents.Message, data);
-      } catch (e) {}
+      } catch (error) {}
     });
   }
 }

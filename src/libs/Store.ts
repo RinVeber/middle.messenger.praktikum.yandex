@@ -6,6 +6,7 @@ export interface IState {
   user?: IUser;
   chats?: any[];
   chatId?: string;
+  chatAvatar?: string;
   chatToken?: string;
   messages?: string[];
 }

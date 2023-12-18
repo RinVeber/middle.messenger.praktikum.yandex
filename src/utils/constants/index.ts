@@ -15,5 +15,6 @@ export enum METHOD {
   PUT = 'PUT',
   DELETE = 'DELETE',
 }
+export const API_URL = 'https://ya-praktikum.tech/api/v2';
 
 export default Routes;

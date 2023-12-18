@@ -1,8 +1,8 @@
-import { Message } from "./apiTransform";
+import { MessageType } from "./apiTransform";
 
 export interface GroupedMessages {
     day: string;
-    messages: Message[];
+    messages?: MessageType[];
 }
 
 export enum Months {
@@ -20,8 +20,15 @@ export enum Months {
     "декабря"
 }
 
-export function groupMessagesByDay(messages: Message[]): GroupedMessages[] {
-    const grouped: { [key: string]: Message[] } = {};
+export function getDay(time: string) {
+    const date = new Date(time);
+    const formTime = `${date.getDate()} ${Months[date.getMonth()]}`;
+    return formTime;
+
+}
+
+export function groupMessagesByDay(messages: MessageType[]): GroupedMessages[] {
+    const grouped: { [key: string]: MessageType[] } = {};
 
     messages.forEach((message) => {
         const date = new Date(message.time);
@@ -36,7 +43,8 @@ export function groupMessagesByDay(messages: Message[]): GroupedMessages[] {
 
     const result: GroupedMessages[] = Object.keys(grouped).map((day) => ({
         day,
-        messages: grouped[day],
+        //TODO: Сделать в следующем спринте отдельный компонент со списком всех сообщений
+        // messages: grouped[day],
     }));
 
     return result;
