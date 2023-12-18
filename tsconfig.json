@@ -16,11 +16,10 @@
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,
     "sourceMap": true,
-    "strictNullChecks": true
+    "strictNullChecks": true,
   },
   "include": [
     "src",
-    "vite-plugin-handlebars-precompile.ts",
     "vite.config.ts",
     "src/**/*.ts",
     "src/global.d.ts"
