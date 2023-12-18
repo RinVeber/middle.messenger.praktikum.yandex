@@ -1,13 +1,7 @@
-export * from './login/constant';
-export * from './register/constant';
-export * from './profile/constants';
-export * from './errors/constants';
-export * from './chat/constants';
-export * from './home/constant';
-
-export { LoginPage } from './login/index';
-export { RegisterPage } from './register/index';
-export { HomePage } from './home/index';
-export { ChatPage } from './chat';
-export { ProfilePage } from './profile';
-export { ErrorsPage } from './errors';
+export { LoginPage } from './Login/index';
+export { RegisterPage } from './Registration/index';
+export { ChatPage } from './Chat';
+export { ProfilePage } from './Profile';
+export { ErrorPage } from './Error';
+export { PasswordSettingPage } from './ProfileSettingPassword';
+export { NotFoundPage } from './NotFound';

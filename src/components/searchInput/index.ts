@@ -1,8 +1,8 @@
 import Block from '../../libs/Block';
-import template from './index.hbs';
+import template from './index.tmpl';
 import './index.scss';
 
-interface InputSearchProps {
+interface IInputSearchProps {
   class?: string;
   id: string;
   value?: string;
@@ -19,12 +19,12 @@ interface InputSearchProps {
   }
 }
 
-export class InputSearch extends Block<InputSearchProps> {
-  constructor(props: InputSearchProps) {
+export class InputSearch extends Block {
+  constructor(props: IInputSearchProps) {
     super(props);
   }
 
   render() {
-    return this.compile(template, this.props)
+    return this.compile(template(), this.props)
   }
 }
