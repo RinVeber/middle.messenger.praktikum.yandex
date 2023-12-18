@@ -1,5 +1,5 @@
-@import '../../../styles/mixin.scss';
-@import '../../../styles//variables.module.scss';
+@import '../../../styles/mixin';
+@import '../../../styles//variables.module';
 
 .message {
   display: flex;
@@ -44,6 +44,7 @@
     font-weight: $font-weight-medium;
     margin-bottom: 4px;
   }
+  
   &__last-message {
     font-size: 10px;
   }
