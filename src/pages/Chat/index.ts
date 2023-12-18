@@ -23,6 +23,7 @@ import AvatarInput from '../../components/AvatarInput';
 import UserController from '../../controllers/userController';
 import { groupMessagesByDay } from '../../utils/dateTransform';
 import { MessageType } from '../../utils/apiTransform';
+import { AvatarDefault } from '../../components';
 
 class Chat extends Block {
   ws: WSTransport | undefined;
@@ -31,10 +32,13 @@ class Chat extends Block {
   constructor() {
     super({
       activeModal: null,
+      // avatar: store.getState() ? avatar : defaultAvatar
     });
   }
 
   init(): void {
+    const st = store.getState();
+    console.log(st);
     this.children.linkProfile = new LinkButton({
       href: Routes.Profile,
       color: 'primary',
@@ -132,15 +136,21 @@ class Chat extends Block {
 
   protected componentDidMount(): void {
     store.on(StoreEvents.Update, (value: IState) => {
+
+      this.children.avatar = new AvatarDefault({
+        avatar: store.getState().chatAvatar
+      })
+
+      
       if (value.chats) {
-        // debugger;
+      
         this.children.chatModals = value.chats?.map(
           (chat, index) =>
             new MessageList({
               ...chat,
-              lastMessage: chat.last_message.content,
-              nameUser: chat.last_message.user.first_name,
-              time: chat.last_message.time,
+              avatarChat: chat.avatar,
+              lastMessage: chat.last_message ? chat.last_message.content : '',
+              time: chat.last_message ? chat.last_message.time : '',
               active: chat.id === this.props.activeModal,
               unreadCount: chat.unread_count,
               events: {
@@ -157,6 +167,7 @@ class Chat extends Block {
                       disabled: false,
                     });
                     store.setState('chatId', chat.id);
+                    store.setState('chatAvatar', chat.avatar);
                     this.chatConnect(chat.id);
                   }
                 },

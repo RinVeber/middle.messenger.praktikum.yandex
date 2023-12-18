@@ -3,7 +3,9 @@ import './index.scss';
 const template = () => `
     <div class="chat__message-list" 
     {{#if active}}style="background:#E4EDFD;"{{else}}''{{/if}}>
-        {{{inputAvatar}}}
+    {{#if avatar}}
+    <img class="message__avatar avatar" src="{{avatar}}"/>
+    {{/if}}
         <div class="message__text message-info">
             <span class="message-info__name name">{{title}}</span>
             <span class="message-info__last-message ">{{lastMessage}}</span>

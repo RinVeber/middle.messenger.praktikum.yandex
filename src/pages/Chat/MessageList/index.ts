@@ -1,15 +1,14 @@
 import Block from '../../../libs/Block';
 import template from './template';
-import AvatarInput from '../../../components/AvatarInput';
-import ChatController from '../../../controllers/chatController';
 // import { IUser } from '../../../api/authApi';
 import { getDay } from '../../../utils/dateTransform';
+import defaultAvatar from '../../../assets/images/defaultAvatar.svg';
 
 export interface IMessageList {
   name: string;
   id: number;
   avatar?: string;
-  nameUser: string;
+  nameUser?: string;
   lastMessage: string;
   time: string;
   unreadCount: number;
@@ -30,26 +29,13 @@ export class MessageList extends Block<IMessageList> {
   constructor(props: IMessageList) {
     super({
       ...props,
-      time: getDay(props.time),
+      avatar: props.avatar ? props.avatar : defaultAvatar,
+      time: props.time != '' ? getDay(props.time) : 'now',
       isRead: props.unreadCount > 0 ? true : false
     });
   }
   init(): void {
-    this.children.inputAvatar = new AvatarInput({
-      name: `avatar${this.props.id}`,
-      value: this.props.avatar,
-      size: '50px',
-      events: {
-        change: (event) => {
-          const formData = new FormData();
-          if (event.target.files?.[0]) {
-            formData.append('avatar', event.target.files?.[0]);
-            formData.append('chatId', this.props.id.toString());
-            ChatController.updateAvatar(formData);
-          }
-        },
-      },
-    });
+   
   }
 
   protected render(): DocumentFragment {

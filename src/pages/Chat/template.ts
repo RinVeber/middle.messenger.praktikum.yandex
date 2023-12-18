@@ -25,6 +25,7 @@ const template = () => `
         <div class="chat__content">
             <div class="content__header">
             <div class="content__buttons">
+            {{{avatar}}}
               {{{addUserButton}}}
               {{{removeUserButton}}}
               </div>

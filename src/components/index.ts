@@ -8,3 +8,4 @@ export { LinkButton } from './LinkButton';
 export { Modal } from './Modal';
 export { InputSearch } from './SearchInput';
 export { Title } from './Title';
+export {AvatarDefault} from './Avatar';
