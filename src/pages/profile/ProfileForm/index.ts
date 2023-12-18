@@ -17,6 +17,9 @@ import Routes from '../../../utils/constants';
 import withStore from '../../../libs/WithStore';
 
 class ProfileForm extends Form {
+  constructor(props: any) {
+    super(props);
+  }
   init(): void {
     this.children.inputAvatar = new AvatarInput({
       name: 'avatar',
@@ -31,6 +34,7 @@ class ProfileForm extends Form {
       },
     });
     this.children.title = new Title({ text: '' });
+
     this.children.inputEmail = new Input({
       label: 'Почта',
       name: 'email',

@@ -12,6 +12,9 @@ interface ChatFormModel {
 }
 
 class ChatForm extends Form {
+  constructor(props: any) {
+    super(props);
+  }
   init(): void {
     this.children.inputMessage = new Input({
       name: 'message',

@@ -7,6 +7,9 @@ import { required } from '../../../../utils/validate';
 import template from './index.tmpl';
 
 class CreateForm extends Form {
+  constructor(props: any) {
+    super(props);
+  }
   init(): void {
     this.children.nameInput = new Input({
       label: 'Наименование',

@@ -2,7 +2,10 @@ import Modal from '../../../components/Modal';
 import AddUserForm from './AddUserForm';
 
 class AddUserDailog extends Modal {
-  protected init(): void {
+  constructor(props: any) {
+    super(props);
+  }
+  init(): void {
     this.children.form = new AddUserForm({
       events: {
         close: () => {

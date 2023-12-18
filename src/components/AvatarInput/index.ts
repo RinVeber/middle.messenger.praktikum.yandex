@@ -11,7 +11,7 @@ export class AvatarInput extends Block<ImageInputProps> {
     });
   }
 
-  protected init(): void {
+  init(): void {
     this.children.inputAvatar = new ImageInput({
       name: this.props.name || 'avatar',
       events: {

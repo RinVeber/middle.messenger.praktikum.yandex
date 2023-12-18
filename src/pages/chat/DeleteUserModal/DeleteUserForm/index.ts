@@ -8,6 +8,9 @@ import { required } from '../../../../utils/validate';
 import template from './index.tmpl';
 
 class DeleteUserForm extends Form {
+  constructor(props: any) {
+    super(props);
+  }
   init(): void {
     this.children.idInput = new Input({
       label: 'id',
