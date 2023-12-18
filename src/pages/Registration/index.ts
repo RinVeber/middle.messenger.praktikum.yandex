@@ -28,7 +28,6 @@ export class RegisterPage extends Block {
 
           const validator = new FormValidator(this.element as HTMLElement);
           validator.init();
-
           if (validator.getIsFormValid()) {
             const form = this.element!.querySelector('form');
             const formData = new FormData(form!);

@@ -5,7 +5,6 @@ export { IconButton } from './IconButton';
 export { ImageInput } from './ImageInput';
 export { Input } from './Input';
 export { LinkButton } from './LinkButton';
-export { MessageList } from './MessageList';
 export { Modal } from './Modal';
 export { InputSearch } from './SearchInput';
 export { Title } from './Title';

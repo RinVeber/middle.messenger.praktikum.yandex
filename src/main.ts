@@ -38,14 +38,12 @@ window.addEventListener('DOMContentLoaded', async () => {
   if (!Object.values(Routes).includes(window.location.pathname as Routes)) {
     router.start();
     router.go(Routes.NotFound);
-
     return;
   }
 
   try {
     await AuthController.fetchUser();
     router.start();
-    console.log(isProtectedRoute);
     if (!isProtectedRoute) {
       router.go(window.location.pathname);
     }

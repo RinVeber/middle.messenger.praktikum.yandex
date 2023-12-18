@@ -13,10 +13,9 @@ class AuthController {
     try {
       await authApi.logout();
       store.setState('user', undefined);
-
       router.go(Routes.Login);
-    } catch (e) {
-      console.error(e);
+    } catch (error) {
+      console.error(error);
     }
   }
 
@@ -25,8 +24,10 @@ class AuthController {
       await authApi.signin(data);
       await this.fetchUser();
       router.go(Routes.Chat);
-    } catch (e) {
-      console.error(e);
+    } catch (error: any) {
+      debugger;
+      if (error?.reason === 'User already in system') router.go('/messenger');
+      console.error(error);
     }
   }
 
@@ -36,8 +37,8 @@ class AuthController {
       await this.fetchUser();
 
       router.go(Routes.Chat);
-    } catch (e) {
-      console.error(e);
+    } catch (error) {
+      console.error(error);
     }
   }
 }
