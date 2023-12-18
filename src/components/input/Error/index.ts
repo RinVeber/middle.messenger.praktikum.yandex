@@ -13,7 +13,7 @@ class InputError extends Block<IStylesBlock<InputErrorProps>> {
 
   render() {
     return this.compile(
-      '<span class="error__text">{{text}}</span>',
+      '<span class="error-text">{{text}}</span>',
       this.props,
     );
   }

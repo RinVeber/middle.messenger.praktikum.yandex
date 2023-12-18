@@ -12,6 +12,7 @@ interface InputProps {
   events?: {
     focus?: () => void;
     blur?: () => void;
+    focusout?: (event: HTMLFormElement) => void;
   };
   validate?: (value: string) => string;
 }

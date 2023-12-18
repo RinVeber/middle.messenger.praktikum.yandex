@@ -8,10 +8,11 @@ export interface InputFieldProps {
   name: string;
   placeholder?: string;
   value?: string;
-  variant?: 'standard' | 'custom';
+  variant?:'custom' | 'standard' ;
   events?: {
     focus?: () => void;
     blur?: () => void;
+    focusout?: (event: HTMLFormElement) => void;
   };
 }
 
@@ -43,9 +44,9 @@ class InputField extends Block<IStylesBlock<InputFieldProps>> {
     return this.compile(
       `<input
       class="{{class}}"
-      name="{{name}}"
       placeholder="{{placeholder}}"
       value="{{value}}"
+      name="{{name}}"
       type="{{type}}"
     />`,
       this.props,

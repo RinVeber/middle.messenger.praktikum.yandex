@@ -48,7 +48,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     }
   } catch (error) {
     router.start();
-    console.log('%store updated', 'background: #22222; color: #bada55');
+    console.log('%cstore updated', 'background: #22222; color: #bada55');
     if (isProtectedRoute) {
       router.go(Routes.Login);
     }
