@@ -1,9 +1,9 @@
 import { defineConfig } from 'vite';
-// import handlebars from './vite-plugin-handlebars-precompile';
+import handlebars from './vite-plugin-handlebars-precompile';
 import checker from 'vite-plugin-checker';
 
 export default defineConfig({
-  plugins: [
+  plugins: [handlebars(),
     checker({
       typescript: true,
     })],
