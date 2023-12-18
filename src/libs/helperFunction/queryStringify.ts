@@ -5,23 +5,31 @@ type PlainObject<T = unknown> = {
 };
 
 function isPlainObject(value: unknown): value is PlainObject {
-  return typeof value === 'object'
-    && value !== null
-    && value.constructor === Object
-    && Object.prototype.toString.call(value) === '[object Object]';
+  return (
+    typeof value === 'object' &&
+    value !== null &&
+    value.constructor === Object &&
+    Object.prototype.toString.call(value) === '[object Object]'
+  );
 }
 
-function stringifyPrimitive(key: string | number | boolean, value: any): string {
+function stringifyPrimitive(
+  key: string | number | boolean,
+  value: any,
+): string {
   return `${key}=${value.toString()}`;
 }
 
 function stringifyValue(key: string, el: any): string {
-  if (typeof el === 'string' || typeof el === 'number' || typeof el === 'boolean') {
+  if (
+    typeof el === 'string' ||
+    typeof el === 'number' ||
+    typeof el === 'boolean'
+  ) {
     return stringifyPrimitive(key, el);
   }
 
   if (isPlainObject(el)) {
-
     return stringifyObject(key, el);
   }
 

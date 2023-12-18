@@ -1,4 +1,4 @@
-import { PlainObject, isPlainObject } from "./PlaneObject";
+import { PlainObject, isPlainObject } from './PlaneObject';
 
 function cloneArray<T>(arr: T[]): T[] {
   const res = [] as T[];
