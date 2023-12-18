@@ -7,8 +7,8 @@ class ChatController {
       const chats = await chatApi.getChats();
 
       store.setState('chats', chats);
-    } catch (e) {
-      console.error(e);
+    } catch (error) {
+      console.error(error);
     }
   }
 
@@ -16,8 +16,8 @@ class ChatController {
     try {
       await chatApi.createChat(value);
       await this.getChats();
-    } catch (e) {
-      console.error(e);
+    } catch (error) {
+      console.error(error);
     }
   }
 
@@ -26,24 +26,24 @@ class ChatController {
       const getToken = await chatApi.getChatToken(id);
 
       store.setState('chatToken', getToken.token);
-    } catch (e) {
-      console.error(e);
+    } catch (error) {
+      console.error(error);
     }
   }
 
   static async addUserInChat(data: IAddUserChat) {
     try {
       await chatApi.addUserInChat(data);
-    } catch (e) {
-      console.error(e);
+    } catch (error) {
+      console.error(error);
     }
   }
 
   static async removeUserInChat(data: IAddUserChat) {
     try {
       await chatApi.removeUserInChat(data);
-    } catch (e) {
-      console.error(e);
+    } catch (error) {
+      console.error(error);
     }
   }
 

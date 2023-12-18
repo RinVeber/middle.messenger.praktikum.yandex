@@ -6,7 +6,6 @@ import Routes from '../utils/constants';
 class AuthController {
   static async fetchUser() {
     const user = await authApi.getUser();
-
     store.setState('user', user);
   }
 
@@ -16,8 +15,8 @@ class AuthController {
       store.setState('user', undefined);
 
       router.go(Routes.Login);
-    } catch (e) {
-      console.error(e);
+    } catch (error) {
+      console.error(error);
     }
   }
 
@@ -26,8 +25,8 @@ class AuthController {
       await authApi.signin(data);
       await this.fetchUser();
       router.go(Routes.Chat);
-    } catch (e) {
-      console.error(e);
+    } catch (error) {
+      console.error(error);
     }
   }
 
@@ -37,8 +36,8 @@ class AuthController {
       await this.fetchUser();
 
       router.go(Routes.Chat);
-    } catch (e) {
-      console.error(e);
+    } catch (error) {
+      console.error(error);
     }
   }
 
