@@ -1,5 +1,5 @@
 import Button from '../../../../components/Button';
-import Form from '../../../../components/Form/Form';
+import Form from '../../../../components/Form';
 import Input from '../../../../components/Input';
 import ChatController from '../../../../controllers/chatController';
 import { IState } from '../../../../libs/Store';

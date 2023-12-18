@@ -2,7 +2,7 @@ import template from './template';
 import Title from '../../../components/Title';
 import Input from '../../../components/Input';
 import Button from '../../../components/Button';
-import Form from '../../../components/Form/Form';
+import Form from '../../../components/Form';
 import { required } from '../../../utils/validate';
 import AuthController from '../../../controllers/authController';
 import { ISigninData } from '../../../api/authApi';
