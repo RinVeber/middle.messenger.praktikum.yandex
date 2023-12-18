@@ -2,7 +2,7 @@ import template from './template';
 import Title from '../../../components/Title';
 import Input from '../../../components/Input';
 import Button from '../../../components/Button';
-import Form from '../../../components/Form';
+import Form from '../../../components/Form/Form';
 import {
   required,
   validateEmail,

@@ -1,7 +1,7 @@
 import template from './template';
 import Input from '../../../components/Input';
 import IconButton from '../../../components/IconButton';
-import Form from '../../../components/Form';
+import Form from '../../../components/Form/Form';
 import { required } from '../../../utils/validate';
 import Block from '../../../libs/Block';
 import fileAddIcon from '../../../assets/icons/add.svg';

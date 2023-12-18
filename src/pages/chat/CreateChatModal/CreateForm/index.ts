@@ -1,6 +1,6 @@
 import { ICreateChat } from '../../../../api/chatApi';
 import Button from '../../../../components/Button';
-import Form from '../../../../components/Form';
+import Form from '../../../../components/Form/Form';
 import Input from '../../../../components/Input';
 import ChatController from '../../../../controllers/chatController';
 import { required } from '../../../../utils/validate';
