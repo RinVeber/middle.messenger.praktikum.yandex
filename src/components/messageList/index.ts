@@ -1,18 +1,38 @@
-import template from './index.hbs';
 import Block from '../../libs/Block';
-import './index.scss';
-import { Messages } from '../../pages/chat/types';
+import template from './index.tmpl';
+import AvatarInput from '../AvatarInput';
+import ChatController from '../../controllers/chatController';
 
-interface IMessageListProps {
-    messages: Messages,
+export interface IMessageList {
+  name: string;
+  id: number;
+  avatar?: string;
+  active?: boolean;
+  events?: {
+    click: (event: Event) => void;
+  };
 }
 
-export class MessageList extends Block<IMessageListProps> {
-  constructor(props: IMessageListProps) {
-    super(props);
-  } 
+export class MessageList extends Block<IMessageList> {
+  protected init(): void {
+    this.children.inputAvatar = new AvatarInput({
+      name: `avatar${this.props.id}`,
+      value: this.props.avatar,
+      size: '50px',
+      events: {
+        change: (event) => {
+          const formData = new FormData();
+          if (event.target.files?.[0]) {
+            formData.append('avatar', event.target.files?.[0]);
+            formData.append('chatId', this.props.id.toString());
+            ChatController.updateAvatar(formData);
+          }
+        },
+      },
+    });
+  }
 
-  render() {
-    return this.compile(template, this.props);
+  protected render(): DocumentFragment {
+    return this.compile(template(), this.props);
   }
 }

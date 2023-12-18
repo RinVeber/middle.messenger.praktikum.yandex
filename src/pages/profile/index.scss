@@ -2,7 +2,9 @@
   display: flex;
   min-height: 100vh;
   height: 100%;
-  
+  justify-content: center;
+  align-items: center;
+
   &__lside {
     background-color: $color-gray-100;
     border-right: thin solid $color-gray-300;
@@ -21,13 +23,12 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
     justify-content: center;
     padding: 10px;
   }
 
   &__info {
-    margin-bottom: 40px
+    margin-bottom: 40px;
   }
 
   &__avatar {
@@ -111,11 +112,22 @@
   &__button {
     display: block;
     padding: 0;
-    
 
     &-logout {
       margin-top: 20px;
       color: $color-red-500;
+    }
+  }
+
+  &__container-button {
+    display: flex;
+    gap: 15px;
+    max-width: 420px;
+
+    &-column {
+      gap: 15px;
+      display: flex;
+      flex-direction: column;
     }
   }
 }

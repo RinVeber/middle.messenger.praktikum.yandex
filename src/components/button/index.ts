@@ -1,27 +1,37 @@
-import template from './index.hbs';
+import { IStylesBlock } from '../../types';
 import Block from '../../libs/Block';
+import './index.scss';
 
-interface IButtonProps {
-  type?: string;
-  secondary?: boolean;
-  class?: string; 
+export interface ButtonProps {
+  label: string;
+  variant?: 'filled' | 'text' | 'secondary' | 'icon';
+  type?: 'button' | 'submit' | 'reset';
   disabled?: boolean;
-  image?: {
-    src: string,
-    alt?: string,
-  }
-  label?: string;
   events?: {
-    click: () => void;
-  }
+    click?: () => void;
+  };
 }
 
-export class Button extends Block<IButtonProps> {
-  constructor(props: IButtonProps) {
-    super(props);
+export class Button extends Block<IStylesBlock<ButtonProps>> {
+  constructor(props: ButtonProps) {
+    super({
+      ...props,
+      class: props.variant || 'filled',
+    });
   }
 
   render() {
-    return this.compile(template, this.props)
+    return this.compile(
+      `<button
+      class="{{class}}"
+      type="{{type}}"
+      {{#if disabled}}
+        disabled
+      {{/if}}
+    >{{label}}</button>`,
+      this.props,
+    );
   }
 }
+
+export default Button;

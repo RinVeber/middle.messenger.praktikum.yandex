@@ -1,37 +1,56 @@
+import * as Pages from './pages';
+import * as Componets from './components';
+import Block from './libs/Block';
 import './index.scss';
-import * as dataPages from './pages/index';
-import { Routes } from './utils';
-import render from './utils/renderDOM';
+import router from './libs/Router';
+import AuthController from './controllers/authController';
+import Routes from './utils/constants';
+import { registerComponent } from './utils/registerComponents';
+
+Object.entries(Componets).forEach(([name]) => {
+  const componentLc = Componets[name as keyof typeof Componets] as typeof Block;
+
+  registerComponent(name, componentLc);
+});
 
 window.addEventListener('DOMContentLoaded', async () => {
-  const { origin, href } = window.location;
-  console.log(`${origin}${Routes.Login}`);
+  let isProtectedRoute = true;
 
-  switch (href) {
-    case `${origin}${Routes.Main}`:
-      render(new dataPages.HomePage(dataPages.navLinkListContext));
-      break;
-    case `${origin}${Routes.Login}`:
-      render(new dataPages.LoginPage(dataPages.loginContext));
-      break;
-    case `${origin}${Routes.Register}`:
-      render(new dataPages.RegisterPage(dataPages.registrationContext));
-      break;
-    case `${origin}${Routes.Profile}`:
-      render(new dataPages.ProfilePage(dataPages.profileContext));
-      break;
-    case `${origin}${Routes.Chat}`:
-      render(new dataPages.ChatPage(dataPages.chatContext));
-      break;
-    case `${origin}${Routes.NotFound}`:
-      render(new dataPages.ErrorsPage(dataPages.statusErrorContext.notFound));
-      break;
-    case `${origin}${Routes.ServerError}`:
-      render(
-        new dataPages.ErrorsPage(dataPages.statusErrorContext.serverError),
-      );
+  router
+    .use(Routes.Chat, Pages.ChatPage)
+    .use(Routes.Register, Pages.RegisterPage)
+    .use(Routes.Login, Pages.LoginPage)
+    .use(Routes.Password, Pages.PasswordSettingPage)
+    .use(Routes.Profile, Pages.ProfilePage)
+    .use(Routes.NotFound, Pages.NotFoundPage)
+    .use(Routes.ErrorPage, Pages.ErrorPage);
+
+  switch (window.location.pathname) {
+    case Routes.Login:
+    case Routes.Register:
+      isProtectedRoute = false;
       break;
     default:
-      render(new dataPages.ErrorsPage(dataPages.statusErrorContext.notFound));
+  }
+
+  if (!Object.values(Routes).includes(window.location.pathname as Routes)) {
+    router.start();
+    router.go(Routes.NotFound);
+
+    return;
+  }
+
+  try {
+    await AuthController.fetchUser();
+    router.start();
+    if (!isProtectedRoute) {
+      router.go(window.location.pathname);
+    }
+  } catch (error) {
+    router.start();
+    console.log('%store updated', 'background: #22222; color: #bada55');
+    if (isProtectedRoute) {
+      router.go(Routes.Login);
+    }
   }
 });
