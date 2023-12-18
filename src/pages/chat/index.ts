@@ -61,10 +61,10 @@ class Chat extends Block {
     this.children.createChatModal = new CreateChatModal({
       isShow: false,
     });
-    this.children.addUserModal = new AddUserModal({
+    this.children.deleteUserModal = new DeleteUserModal({
       isShow: false,
     });
-    this.children.deleteUserModal = new DeleteUserModal({
+    this.children.addUserModal = new AddUserModal({
       isShow: false,
     });
 
