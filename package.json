@@ -14,8 +14,6 @@
     "stylelint:fix": "stylelint '**/*{.css,.scss}' --fix"
   },
   "devDependencies": {
-    "@types/uuid": "^9.0.7",
-    "@types/handlebars": "^4.1.0",
     "eslint": "^8.52.0",
     "eslint-config-airbnb-typescript": "^17.1.0",
     "eslint-config-prettier": "^9.0.0",
