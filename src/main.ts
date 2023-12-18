@@ -6,6 +6,7 @@ import './index.scss';
 import router from './libs/Router';
 import AuthController from './controllers/authController';
 import Routes from './utils/constants';
+import store from './libs/Store';
 
 // Object.entries(Componets).forEach(([name]) => {
 //   const componentLc = Componets[name as keyof typeof Componets] as typeof Block;
@@ -15,6 +16,8 @@ import Routes from './utils/constants';
 
 window.addEventListener('DOMContentLoaded', async () => {
   let isProtectedRoute = true;
+  let currentPathname = window.location.pathname;
+  let user = store.getState();
 
   router
     .use(Routes.Chat, Pages.ChatPage)
@@ -31,6 +34,13 @@ window.addEventListener('DOMContentLoaded', async () => {
       isProtectedRoute = false;
       break;
     default:
+  }
+
+  if (
+    user &&
+    (currentPathname == Routes.Login || currentPathname == Routes.Register)
+  ) {
+    router.go(Routes.Chat);
   }
 
   if (!Object.values(Routes).includes(window.location.pathname as Routes)) {
