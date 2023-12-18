@@ -1,4 +1,4 @@
-import template from './index.tmpl';
+import template from './template';
 import LinkButton from '../../components/LinkButton';
 import Block from '../../libs/Block';
 import Routes from '../../utils/constants';

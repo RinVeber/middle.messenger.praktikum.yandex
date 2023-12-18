@@ -1,7 +1,6 @@
 import Block from '../Block';
 type StringIndexed = Record<string, any>;
 
-
 export default function render(query: string, block: Block<StringIndexed>) {
   const root = document.querySelector(query);
 

@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [handlebars(),
     checker({
       typescript: true,
-    }),],
+    })],
   css: {
     preprocessorOptions: {
       scss: {

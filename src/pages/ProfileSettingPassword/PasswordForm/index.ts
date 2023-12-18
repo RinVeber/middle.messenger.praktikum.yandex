@@ -1,4 +1,4 @@
-import template from './index.tmpl';
+import template from './template';
 import Title from '../../../components/Title';
 import Input from '../../../components/Input';
 import Button from '../../../components/Button';
@@ -15,6 +15,9 @@ import Routes from '../../../utils/constants';
 import withStore from '../../../libs/WithStore';
 
 class PasswordForm extends Form {
+  constructor(props: any) {
+    super(props);
+  }
   init(): void {
     this.children.title = new Title({ text: 'profile_name' });
     this.children.inputOldPassword = new Input({

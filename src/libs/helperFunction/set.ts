@@ -1,7 +1,11 @@
 import { Indexed } from '../../types';
 import merge from './merge';
 
-function set(object: Indexed | unknown, path: string, value: unknown): Indexed | unknown {
+function set(
+  object: Indexed | unknown,
+  path: string,
+  value: unknown,
+): Indexed | unknown {
   if (typeof object !== 'object' || object === null) {
     return object;
   }
@@ -10,9 +14,12 @@ function set(object: Indexed | unknown, path: string, value: unknown): Indexed |
     throw new Error('path must be string');
   }
 
-  const result = path.split('.').reduceRight<Indexed>((acc, key) => ({
-    [key]: acc,
-  }), value as any);
+  const result = path.split('.').reduceRight<Indexed>(
+    (acc, key) => ({
+      [key]: acc,
+    }),
+    value as any,
+  );
   return merge(object as Indexed, result);
 }
 

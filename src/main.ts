@@ -1,17 +1,17 @@
-import * as Pages from './pages';
-import * as Componets from './components';
-import Block from './libs/Block';
+import * as Pages from './pages/index';
+// import * as Componets from './components';
+// import Block from './libs/Block';
+// import { registerComponent } from './utils/registerComponents';
 import './index.scss';
 import router from './libs/Router';
 import AuthController from './controllers/authController';
 import Routes from './utils/constants';
-import { registerComponent } from './utils/registerComponents';
 
-Object.entries(Componets).forEach(([name]) => {
-  const componentLc = Componets[name as keyof typeof Componets] as typeof Block;
+// Object.entries(Componets).forEach(([name]) => {
+//   const componentLc = Componets[name as keyof typeof Componets] as typeof Block;
 
-  registerComponent(name, componentLc);
-});
+//   registerComponent(name, componentLc);
+// });
 
 window.addEventListener('DOMContentLoaded', async () => {
   let isProtectedRoute = true;
@@ -48,7 +48,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     }
   } catch (error) {
     router.start();
-    console.log('%store updated', 'background: #22222; color: #bada55');
+    console.log('%cstore updated', 'background: #22222; color: #bada55');
     if (isProtectedRoute) {
       router.go(Routes.Login);
     }

@@ -1,4 +1,4 @@
-import { METHOD } from '../utils/constants';
+import { METHOD } from "../utils/constants";
 
 type Options<Data> = {
   method: string;

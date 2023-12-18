@@ -1,5 +1,5 @@
 import Block from '../../libs/Block';
-import template from './index.tmpl';
+import template from './template';
 import AvatarInput from '../AvatarInput';
 import ChatController from '../../controllers/chatController';
 
@@ -14,7 +14,7 @@ export interface IMessageList {
 }
 
 export class MessageList extends Block<IMessageList> {
-  protected init(): void {
+  init(): void {
     this.children.inputAvatar = new AvatarInput({
       name: `avatar${this.props.id}`,
       value: this.props.avatar,

@@ -1,6 +1,6 @@
 import Block from '../../libs/Block';
 import ImageInput from '../ImageInput';
-import template from './index.tmpl';
+import template from './template';
 import { ImageInputProps } from '../ImageInput';
 
 export class AvatarInput extends Block<ImageInputProps> {
@@ -11,7 +11,7 @@ export class AvatarInput extends Block<ImageInputProps> {
     });
   }
 
-  protected init(): void {
+  init(): void {
     this.children.inputAvatar = new ImageInput({
       name: this.props.name || 'avatar',
       events: {

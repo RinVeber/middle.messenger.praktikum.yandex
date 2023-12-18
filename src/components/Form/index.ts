@@ -10,9 +10,7 @@ export abstract class Form extends Block {
         ...events,
         submit: (event: any) => {
           event.preventDefault();
-
           this.markAllAsTouched();
-
           if (this.check()) {
             const formData = new FormData(this.element as HTMLFormElement);
             const values = Object.fromEntries(formData);
@@ -24,6 +22,7 @@ export abstract class Form extends Block {
   }
 
   abstract submit(value: any): void;
+  abstract renderForm(): string;
 
   markAllAsTouched(): void {
     Object.keys(this.children).forEach((childName) => {
@@ -44,8 +43,6 @@ export abstract class Form extends Block {
     });
     return res;
   }
-
-  abstract renderForm(): string;
 
   render() {
     return this.compile(

@@ -1,7 +1,7 @@
 import {IStylesBlock} from '../../types';
 import Block from '../../libs/Block';
 import './index.scss'
-import template from './index.templ';
+import template from './template';
 
 export interface IconButtonProps {
   events?: {
