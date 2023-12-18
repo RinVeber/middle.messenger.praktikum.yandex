@@ -7,11 +7,9 @@ const template = () => `
             <label class="label">{{label}}</label>
         {{/if}}
         {{{input}}}
-        <span class="error-text">{{text}}</span>,
+        {{{error}}}
     </div>
 </div>
 `;
 
 export default template;
-
-//     {{{error}}}
