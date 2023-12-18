@@ -4,7 +4,7 @@ import Form from '../../../../components/Form';
 import Input from '../../../../components/Input';
 import ChatController from '../../../../controllers/chatController';
 import { required } from '../../../../utils/validate';
-import template from './index.tmpl';
+import template from './template';
 
 class CreateForm extends Form {
   constructor(props: any) {

@@ -5,7 +5,7 @@ import ChatController from '../../../../controllers/chatController';
 import { IState } from '../../../../libs/Store';
 import withStore from '../../../../libs/WithStore';
 import { required } from '../../../../utils/validate';
-import template from './index.tmpl';
+import template from './template';
 
 class AddUserForm extends Form {
   init(): void {

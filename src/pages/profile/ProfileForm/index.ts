@@ -1,4 +1,4 @@
-import template from './index.tmpl';
+import template from './template';
 import Title from '../../../components/Title';
 import Input from '../../../components/Input';
 import Button from '../../../components/Button';

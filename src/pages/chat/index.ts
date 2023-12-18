@@ -1,4 +1,4 @@
-import template from './index.tmpl';
+import template from './template';
 import Block from '../../libs/Block';
 import './index.scss';
 import LinkButton from '../../components/LinkButton';

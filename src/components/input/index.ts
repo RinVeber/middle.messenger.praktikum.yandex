@@ -2,7 +2,7 @@ import { IStylesBlock } from '../../types';
 import Block from '../../libs/Block';
 import InputError from './Error';
 import InputField from './InputField';
-import template from './Input.tmpl';
+import template from './template';
 
 interface InputProps {
   label?: string;

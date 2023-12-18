@@ -1,5 +1,5 @@
 import Block from '../../libs/Block';
-import template from './index.tmpl';
+import template from './template';
 import AvatarInput from '../AvatarInput';
 import ChatController from '../../controllers/chatController';
 

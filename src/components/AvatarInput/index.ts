@@ -1,6 +1,6 @@
 import Block from '../../libs/Block';
 import ImageInput from '../ImageInput';
-import template from './index.tmpl';
+import template from './template';
 import { ImageInputProps } from '../ImageInput';
 
 export class AvatarInput extends Block<ImageInputProps> {
