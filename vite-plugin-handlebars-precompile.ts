@@ -1,5 +1,5 @@
-import Handlebars from "handlebars";
-import { PluginOption } from "vite";
+import Handlebars from 'handlebars';
+import { PluginOption } from 'vite';
 
 export default function handlebars(): PluginOption {
   const fileRegexp = /\.hbs$|\.handlebars$/;
@@ -7,7 +7,7 @@ export default function handlebars(): PluginOption {
   return {
     name: 'vite-plugin-handlebars-precompile',
     transform(src, id) {
-      if(!fileRegexp.test(id)) {
+      if (!fileRegexp.test(id)) {
         return;
       }
 
@@ -15,11 +15,11 @@ export default function handlebars(): PluginOption {
         import Handlebars from 'handlebars/runtime';
 
         export default Handlebars.template(${Handlebars.precompile(src)});
-      `
+      `;
 
       return {
-        code
-      }
-    }
-  }
+        code,
+      };
+    },
+  };
 }
