@@ -17,7 +17,7 @@ class Message extends Block<IStylesBlock<MessageProps>> {
       time: getDay(props.time),
       class: !props.isCurrentUser ? 'letter__current-user' : 'letter',
       styleText: 'letter__text',
-      nameUser: props.isCurrentUser ? 'Я' : 'Собеседник'
+      nameUser: props.isCurrentUser ? 'Я' : 'Собеседник',
     });
   }
 
