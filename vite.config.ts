@@ -1,12 +1,8 @@
 import { defineConfig } from 'vite';
 import handlebars from './vite-plugin-handlebars-precompile';
-import checker from 'vite-plugin-checker';
 
 export default defineConfig({
-  plugins: [handlebars(),
-    checker({
-      typescript: true,
-    }),],
+  plugins: [handlebars()],
   css: {
     preprocessorOptions: {
       scss: {
