@@ -1,4 +1,4 @@
-import * as Pages from './pages/index';
+// import * as Pages from './pages/index';
 // import * as Componets from './components';
 // import Block from './libs/Block';
 // import { registerComponent } from './utils/registerComponents';
@@ -6,6 +6,13 @@ import './index.scss';
 import router from './libs/Router';
 import AuthController from './controllers/authController';
 import Routes from './utils/constants';
+import { ChatPage } from './pages/Chat';
+import RegisterPage from './pages/Registration';
+import ProfilePage from './pages/Profile';
+import PasswordSettingPage from './pages/ProfileSettingPassword';
+import LoginPage from './pages/Login';
+import NotFoundPage from './pages/NotFound';
+import ErrorPage from './pages/Error';
 
 // Object.entries(Componets).forEach(([name]) => {
 //   const componentLc = Componets[name as keyof typeof Componets] as typeof Block;
@@ -17,13 +24,13 @@ window.addEventListener('DOMContentLoaded', async () => {
   let isProtectedRoute = true;
 
   router
-    .use(Routes.Chat, Pages.ChatPage)
-    .use(Routes.Register, Pages.RegisterPage)
-    .use(Routes.Login, Pages.LoginPage)
-    .use(Routes.Password, Pages.PasswordSettingPage)
-    .use(Routes.Profile, Pages.ProfilePage)
-    .use(Routes.NotFound, Pages.NotFoundPage)
-    .use(Routes.ErrorPage, Pages.ErrorPage);
+    .use(Routes.Chat, ChatPage)
+    .use(Routes.Register, RegisterPage)
+    .use(Routes.Login, LoginPage)
+    .use(Routes.Password, PasswordSettingPage)
+    .use(Routes.Profile, ProfilePage)
+    .use(Routes.NotFound, NotFoundPage)
+    .use(Routes.ErrorPage, ErrorPage);
 
   switch (window.location.pathname) {
     case Routes.Login:
