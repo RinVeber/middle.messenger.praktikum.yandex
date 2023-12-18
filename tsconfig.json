@@ -18,5 +18,11 @@
     "sourceMap": true,
     "strictNullChecks": true
   },
-  "include": ["src", "vite-plugin-handlebars-precompile.ts", "vite.config.ts"]
+  "include": [
+    "src",
+    "vite-plugin-handlebars-precompile.ts",
+    "vite.config.ts",
+    "src/**/*.ts",
+    "tests/**/*.ts"
+  ]
 }
