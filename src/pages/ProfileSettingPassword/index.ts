@@ -1,5 +1,4 @@
 import Block from '../../libs/Block';
-import '../profile/index.scss';
 import PasswordForm from './PasswordForm';
 
 export class PasswordSettingPage extends Block {
