@@ -2,11 +2,10 @@
   "name": "middle.messenger.praktikum.yandex",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "start": "npm run build && node server.js",
-    "build": "tsc && --noEmit && vite build",
+    "build": "tsc && vite build",
     "preview": "vite preview",
     "stylelint": "stylelint '**/*{.css,.scss}'",
     "stylelint:fix": "stylelint '**/*{.css,.scss}' --fix"
