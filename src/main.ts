@@ -14,9 +14,10 @@ import store from './libs/Store';
 //   registerComponent(name, componentLc);
 // });
 
+let currentPathname = window.location.pathname;
+
 window.addEventListener('DOMContentLoaded', async () => {
   let isProtectedRoute = true;
-  let currentPathname = window.location.pathname;
   let user = store.getState();
 
   router
