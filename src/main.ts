@@ -1,4 +1,4 @@
-import * as Pages from './pages';
+import * as Pages from './pages/index';
 // import * as Componets from './components';
 // import Block from './libs/Block';
 // import { registerComponent } from './utils/registerComponents';
