@@ -6,7 +6,6 @@ import Routes from '../utils/constants';
 class AuthController {
   static async fetchUser() {
     const user = await authApi.getUser();
-
     store.setState('user', user);
   }
 
@@ -41,7 +40,6 @@ class AuthController {
       console.error(e);
     }
   }
-
 }
 
 export default AuthController;
