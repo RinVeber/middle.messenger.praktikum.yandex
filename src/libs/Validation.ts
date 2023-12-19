@@ -10,13 +10,14 @@ enum ValidateRuleType {
 
 class FormValidator {
   private form;
+  private isFormValid;
 
   public constructor(parentEl: HTMLElement) {
     this.form = parentEl.querySelector('form') as HTMLFormElement;
+    this.isFormValid = true;
   }
 
   init() {
-    let isFormValid = true;
     const inputs = this.form.querySelectorAll('[name]');
 
     inputs.forEach((inputElement) => {
@@ -25,12 +26,12 @@ class FormValidator {
       this.checkValidity(input);
 
       if (input.dataset.isValid === 'false') {
-        isFormValid = false;
+        this.isFormValid = false;
         return false;
       }
     });
 
-    if (isFormValid) {
+    if (this.isFormValid) {
       this.getInputValues(this.form);
     }
   }
@@ -39,6 +40,12 @@ class FormValidator {
     const formData = new FormData(form);
 
     console.log(Object.fromEntries([...formData]));
+
+    return Object.fromEntries([...formData]);
+  }
+
+  public getIsFormValid(): boolean {
+    return this.isFormValid;
   }
 
   checkValidity(input: HTMLInputElement) {

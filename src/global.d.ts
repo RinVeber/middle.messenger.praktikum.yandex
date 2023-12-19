@@ -8,3 +8,4 @@ declare module '*.jpg';
 declare module '*.jpeg';
 declare module '*.hbs';
 declare module '*.handlebars';
+declare module '*.ts';

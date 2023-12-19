@@ -1,0 +1,131 @@
+.chat__content {
+  display: flex;
+  flex-direction: column;
+  flex-basis: calc(100% - 240px);
+  justify-content: space-between;
+  padding: 9px 20px;
+  height: 100vh;
+
+  &__avatar {
+    margin-right: 9px;
+  }
+
+  &__name {
+    margin-right: auto;
+    font-size: 13px;
+    font-weight: $font-weight-rare-medium;
+  }
+}
+
+.chat__letters {
+  overflow-y: scroll;
+
+  @include remove-scroll-bar;
+}
+
+.chat__footer {
+  border-top: thin solid $color-gray-300;
+  display: flex;
+  height: 56px;
+  padding-top: 9px;
+}
+
+.chat__header {
+  align-items: center;
+  border-bottom: thin solid $color-gray-300;
+  display: flex;
+  justify-content: space-between;
+  height: 56px;
+  padding-bottom: 10px;
+}
+
+.content__header {
+  align-items: center;
+  border-bottom: thin solid $color-gray-300;
+  display: flex;
+  justify-content: space-between;
+  height: 56px;
+  padding-bottom: 10px;
+}
+
+.chat__empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  color: #999;
+  flex-grow: 1;
+}
+
+.chat__exist {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  row-gap: 16px;
+  height: 100%;
+  overflow-y: scroll;
+
+  @include remove-scroll-bar;
+}
+
+.chat {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+
+  &__lside {
+    flex-basis: 300px;
+    flex-shrink: 1;
+    border-right: thin solid $color-gray-300;
+
+    &-header {
+      align-items: center;
+      justify-content: space-between;
+      display: flex;
+      flex-direction: row;
+      max-height: 100px;
+      padding: 6px;
+    }
+
+    &-button {
+      align-self: flex-end;
+      width: 90px;
+
+      &--text {
+        color: $color-gray-700;
+        font-weight: $font-weight-light;
+      }
+    }
+
+    &-list {
+      padding: 6px 0;
+      height: calc(100vh - 200px);
+      overflow-y: scroll;
+
+      @include remove-scroll-bar;
+    }
+  }
+
+  &__input-search {
+    max-width: 300px;
+    width: 100%;
+  }
+}
+
+.chat__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 20px;
+  overflow-y: auto;
+  max-height: calc(100% - 120px);
+}
+
+.content__buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+}

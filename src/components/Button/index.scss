@@ -1,0 +1,86 @@
+.filled {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  background-color: #3369f3;
+  color: white;
+  font-weight: 500;
+  line-height: 14px;
+  font-size: 12px;
+  cursor: pointer;
+  height: fit-content;
+
+  &:disabled {
+    opacity: 0.7;
+  }
+}
+
+.filled:focus {
+  outline: none;
+}
+
+.text {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  color: #3369f3;
+  background: none;
+  font-size: 11px;
+  line-height: 11px;
+  border: none;
+  cursor: pointer;
+}
+
+.text:hover {
+  background: rgb(25 118 210 / 4%);
+}
+
+.text:focus {
+  outline: none;
+}
+
+.secondary {
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: $font-weight-medium;
+  padding: 12px;
+  transition: all ease 0.3s;
+  background-color: transparent;
+  color: $color-light-blue-A800;
+
+  &:hover {
+    background-color: transparent;
+    box-shadow:
+      0 0 6px 0 rgb(0 0 0 / 14%) inset,
+      0 4px 4px 0 rgb(0 0 0 / 25%);
+    transition: all ease 0.3s;
+  }
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  height: 32px;
+  width: 36px;
+  background: none;
+  cursor: pointer;
+  margin-right: 8px;
+
+  &:hover {
+    background-color: $color-light-blue-A600;
+  }
+
+  & svg {
+    fill: $color-gray-700;
+  }
+
+  &:hover svg {
+    fill: $color-gray-400;
+  }
+}

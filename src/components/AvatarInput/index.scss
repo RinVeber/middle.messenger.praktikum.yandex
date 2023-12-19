@@ -1,0 +1,31 @@
+.image {
+  border-radius: 50%;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+  }
+
+  label {
+    position: relative;
+    display: block;
+
+    &:hover::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 130px;
+      height: 130px;
+      background: aliceblue;
+      opacity: 0.3;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: black;
+      font-weight: 600;
+      font-size: 20px;
+    }
+  }
+}

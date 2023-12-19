@@ -1,0 +1,21 @@
+@import './Error/index';
+
+.label {
+  color: #999;
+  line-height: 9px;
+  font-size: 12px;
+  padding-bottom: 8px;
+}
+
+.input {
+  background-color: transparent;
+  text-align: start;
+  border-radius: none;
+  border-bottom: 1px solid #3369f3;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
