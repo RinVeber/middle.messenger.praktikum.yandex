@@ -94,7 +94,7 @@ class Chat extends Block {
           const formData = new FormData();
           if (event.target.files?.[0]) {
             formData.append('avatar', event.target.files?.[0]);
-            UserController.updateAvatar(formData);
+            ChatController.updateAvatar(formData);
           }
         },
       },
@@ -136,7 +136,6 @@ class Chat extends Block {
 
   protected componentDidMount(): void {
     store.on(StoreEvents.Update, (value: IState) => {
-
       this.children.avatar = new AvatarDefault({
         avatar: store.getState().chatAvatar
       })

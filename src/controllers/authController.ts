@@ -1,5 +1,5 @@
 import authApi, { ISigninData, ISignupData } from '../api/authApi';
-import router from '../libs/Router';
+import router from '../libs/Router/Router';
 import store from '../libs/Store';
 import Routes from '../utils/constants';
 

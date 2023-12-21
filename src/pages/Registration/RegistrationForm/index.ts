@@ -13,7 +13,7 @@ import {
 } from '../../../utils/validate';
 import AuthController from '../../../controllers/authController';
 import { ISignupData } from '../../../api/authApi';
-import router from '../../../libs/Router';
+import router from '../../../libs/Router/Router';
 import Routes from '../../../utils/constants';
 
 interface IRegisterFormProps {

@@ -1,5 +1,5 @@
 import userApi, { IPasswordUpdateData, IUserUpdateData } from '../api/userApi';
-import router from '../libs/Router';
+import router from '../libs/Router/Router';
 import Routes from '../utils/constants';
 import AuthController from './authController';
 

@@ -2,7 +2,7 @@ import Block from '../../libs/Block';
 import './index.scss';
 import RegistrationForm from './RegistrationForm';
 import FormValidator from '../../libs/Validation';
-import router from '../../libs/Router';
+import router from '../../libs/Router/Router';
 import Routes from '../../utils/constants';
 import AuthController from '../../controllers/authController';
 

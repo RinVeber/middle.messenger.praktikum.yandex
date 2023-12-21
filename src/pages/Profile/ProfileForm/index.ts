@@ -8,7 +8,7 @@ import {
 } from '../../../utils/validate';
 import ProfileFormModel from './ProfileForm.model';
 import AuthController from '../../../controllers/authController';
-import router from '../../../libs/Router';
+import router from '../../../libs/Router/Router';
 import store, { IState, StoreEvents } from '../../../libs/Store';
 import Block from '../../../libs/Block';
 import UserController from '../../../controllers/userController';

@@ -6,7 +6,7 @@ import Form from '../../../components/Form';
 import { required } from '../../../utils/validate';
 import AuthController from '../../../controllers/authController';
 import { ISigninData } from '../../../api/authApi';
-import router from '../../../libs/Router';
+import router from '../../../libs/Router/Router';
 import Routes from '../../../utils/constants';
 
 interface ILoginFormProps {

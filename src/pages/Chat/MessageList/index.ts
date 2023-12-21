@@ -27,6 +27,7 @@ export interface IMessageList {
 
 export class MessageList extends Block<IMessageList> {
   constructor(props: IMessageList) {
+    debugger;
     super({
       ...props,
       avatar: props.avatar ? props.avatar : defaultAvatar,

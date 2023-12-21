@@ -4,7 +4,7 @@ import LoginForm from './LoginForm';
 import FormValidator from '../../libs/Validation';
 import AuthController from '../../controllers/authController';
 import Routes from '../../utils/constants';
-import router from '../../libs/Router';
+import router from '../../libs/Router/Router';
 
 export interface ISignInData {
   first_name: string;

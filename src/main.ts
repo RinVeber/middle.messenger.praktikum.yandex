@@ -3,7 +3,7 @@ import * as Pages from './pages/index';
 // import Block from './libs/Block';
 // import { registerComponent } from './utils/registerComponents';
 import './index.scss';
-import router from './libs/Router';
+import router from './libs/Router/Router';
 import AuthController from './controllers/authController';
 import Routes from './utils/constants';
 import store from './libs/Store';

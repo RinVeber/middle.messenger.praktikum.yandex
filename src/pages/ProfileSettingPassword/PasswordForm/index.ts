@@ -5,7 +5,7 @@ import Button from '../../../components/Button';
 import Form from '../../../components/Form';
 import { required, validatePassword } from '../../../utils/validate';
 import PasswordFormModel from './PasswordForm.model';
-import router from '../../../libs/Router';
+import router from '../../../libs/Router/Router';
 import UserController from '../../../controllers/userController';
 import AvatarInput from '../../../components/AvatarInput';
 import AuthController from '../../../controllers/authController';
