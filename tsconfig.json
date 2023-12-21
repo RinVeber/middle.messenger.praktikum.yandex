@@ -21,6 +21,9 @@
   "ts-node": {
     "files": true,
     "extension": ["ts"],
+    "esm": true,
+    "experimentalSpecifierResolution": "node",
+    "transpileOnly": true
   },
   "include": ["src"]
 }

@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "stylelint": "stylelint '**/*{.css,.scss}'",
     "stylelint:fix": "stylelint '**/*{.css,.scss}' --fix",
-    "test": "mocha --require ts-node/register --require ./mochaSetup.cjs './src/**/*.test.ts'",
+    "test": "mocha",
     "precommit": "npm run test && npm run stylelint:fix"
   },
   "devDependencies": {
@@ -41,6 +41,7 @@
     "jsdom": "^23.0.1",
     "mocha": "^10.2.0",
     "nanoid": "^5.0.4",
+    "node-esm-loader": "^0.3.0",
     "prettier": "^3.0.3",
     "sass": "^1.69.5",
     "scss": "^0.2.4",
