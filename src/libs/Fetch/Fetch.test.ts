@@ -1,18 +1,18 @@
+import { assert, expect } from 'chai';
 import sinon, {
   SinonFakeXMLHttpRequest,
   SinonFakeXMLHttpRequestStatic,
 } from 'sinon';
 import HTTPTransport, { queryStringify } from './Fetch';
 import { METHOD } from '../../utils/constants';
-import { assert, expect } from 'chai';
 
 describe('HTTPTransport', () => {
   it('data правильно преобразуется в query', async () => {
-    const res = queryStringify({ a: '1', b: '2' });
+    const result = queryStringify({ a: '1', b: '2' });
 
     const expectedUrl = `?a=1&b=2`;
 
-    expect(expectedUrl).to.be.eq(res);
+    expect(expectedUrl).to.be.eq(result);
   });
 
   it('GET метод должен передавать в реквест соответствующие url и options', async () => {
