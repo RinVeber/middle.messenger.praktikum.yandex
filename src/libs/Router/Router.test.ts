@@ -8,19 +8,19 @@ describe('Router Tests', () => {
     router.routes = [];
   });
 
-  it('should add a routes', () => {
+  it('Должен добавляться в роутер', () => {
     router.use('/not-found', NotFoundPage).use('sign-in', LoginPage);
 
     expect(router.routes).to.have.lengthOf(2);
   });
 
-  it('should go route', () => {
+  it('Переход по роуту', () => {
     router.use('/sign-in', LoginPage).start();
     router.go('/sign-in');
     expect(window.location.pathname).to.be.eq('/sign-in');
   });
 
-  it('Testing back', () => {
+  it('Переход "назад"', () => {
     router
       .use('/sign-in', LoginPage)
       .start();
@@ -30,7 +30,7 @@ describe('Router Tests', () => {
     expect(router.routes.length).to.eq(1);
   });
 
-  it('should forward route', () => {
+  it('Редирект роутов', () => {
     router
       .use('/not-found', NotFoundPage)
       .use('/sign-up', LoginPage)

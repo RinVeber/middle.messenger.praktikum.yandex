@@ -21,7 +21,7 @@ describe('Button test', () => {
     },
   };
 
-  it('Should be click', () => {
+  it('Клик по кнопке', () => {
     const button = new Button(props);
     button.element?.click();
 

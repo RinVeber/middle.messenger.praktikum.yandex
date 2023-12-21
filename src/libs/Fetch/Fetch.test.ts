@@ -1,123 +1,159 @@
-import { describe } from 'mocha';
-import sinon, { SinonFakeXMLHttpRequest, SinonFakeXMLHttpRequestStatic } from 'sinon';
-import { expect } from 'chai';
-import HTTPTransport from './Fetch';
+import sinon, {
+  SinonFakeXMLHttpRequest,
+  SinonFakeXMLHttpRequestStatic,
+} from 'sinon';
+import HTTPTransport, { queryStringify } from './Fetch';
+import { METHOD } from '../../utils/constants';
+import { assert, expect } from 'chai';
 
-describe('HTTP Trnasport', () => {
+describe('HTTPTransport', () => {
+  it('data правильно преобразуется в query', async () => {
+    const res = queryStringify({ a: '1', b: '2' });
+
+    const expectedUrl = `?a=1&b=2`;
+
+    expect(expectedUrl).to.be.eq(res);
+  });
+
+  it('GET метод должен передавать в реквест соответствующие url и options', async () => {
+    const http = new HTTPTransport('/test');
+
+    const requestStub = sinon.stub(http, 'request').resolves();
+
+    await http.get('/test', { data: { a: '1', b: '2' } });
+
+    expect(
+      requestStub.calledWithMatch('/test/test', {
+        method: METHOD.GET,
+        data: { a: '1', b: '2' },
+      }),
+    ).to.be.true;
+  });
+
+  it('POST метод должен передавать в реквест соответствующие url и options', async () => {
+    const http = new HTTPTransport('/test');
+
+    const requestStub = sinon.stub(http, 'request').resolves();
+
+    await http.post('/test', { data: { a: '1', b: '2' } });
+
+    expect(
+      requestStub.calledWithMatch('/test/test', {
+        method: METHOD.POST,
+        data: { a: '1', b: '2' },
+      }),
+    ).to.be.true;
+  });
+
+  it('PUT метод должен передавать в реквест соответствующие url и options', async () => {
+    const http = new HTTPTransport('/test');
+
+    const requestStub = sinon.stub(http, 'request').resolves();
+
+    await http.put('/test', { data: { a: '1', b: '2' } });
+
+    expect(
+      requestStub.calledWithMatch('/test/test', {
+        method: METHOD.PUT,
+        data: { a: '1', b: '2' },
+      }),
+    ).to.be.true;
+  });
+
+  it('DELETE метод должен передавать в реквест соответствующие url и options', async () => {
+    const http = new HTTPTransport('/test');
+
+    const requestStub = sinon.stub(http, 'request').resolves();
+
+    await http.delete('/test', { data: { a: '1', b: '2' } });
+
+    expect(
+      requestStub.calledWithMatch('/test/test', {
+        method: METHOD.DELETE,
+        data: { a: '1', b: '2' },
+      }),
+    ).to.be.true;
+  });
+});
+
+describe('Метод request', () => {
   let xhr: SinonFakeXMLHttpRequestStatic;
-  const instance = new HTTPTransport('http://localhost:5173');
-  const requests: SinonFakeXMLHttpRequest[] = [];
-
-  const data = {
-    a: 'test',
-  };
-  const dataQuery = '?a=test';
-
-  beforeEach(() => {
+  let requests: SinonFakeXMLHttpRequest[];
+  before(() => {
     xhr = sinon.useFakeXMLHttpRequest();
-
-       // @ts-ignore
-
-    global.XMLHttpRequest = xhr as any;
-
-
-    xhr.onCreate = function (req) {
-      requests.push(req);
+    requests = [];
+    xhr.onCreate = (request) => {
+      requests.unshift(request);
     };
   });
 
-  afterEach(() => {
-    requests.length = 0;
+  after(() => {
     xhr.restore();
   });
 
-  describe('method get()', () => {
-    it('should be called with GET method', () => {
-      instance.get('/');
+  it('Должен отправить Get запрос', (done) => {
+    const url = '/test';
+    const options = {
+      method: METHOD.GET,
+    };
 
-      expect(requests[0].method).to.eq('GET');
-    });
+    const http = new HTTPTransport('/test');
 
-    it('should be called with body', () => {
-      instance.get('/', {
-        data,
-      });
+    http
+      .request(url, options)
+      .then((response) => {
+        assert.isNotNull(response);
 
-      expect(requests[0].url).includes(dataQuery);
-    });
+        assert.deepEqual(
+          JSON.stringify(response),
+          JSON.stringify({ message: 'Success' }),
+        );
 
-    it('should be called with array', () => {
-      instance.get('/', {
-        data: {
-          arr: [1, 2, 3],
-        },
-      });
+        done();
+      })
+      .catch(done);
 
-      expect(requests[0].url).includes('arr[0]=1&arr[1]=2&arr[2]=3');
-    });
-  });
+    requests[0].respond(200, {}, JSON.stringify({ message: 'Success' }));
 
-  describe('method post()', () => {
-    it('should be called with POST method', () => {
-      instance.post('/');
+    expect(requests[0].method).to.equal(METHOD.GET);
+    expect(requests[0].url).to.equal('/test');
+    expect(requests).to.have.lengthOf(1);
+  }).timeout(5000);
 
-      expect(requests[0].method).to.eq('POST');
-    });
+  it('Должен отправить Post запрос', (done) => {
+    const url = '/test';
+    const options = {
+      method: METHOD.POST,
+      data: { key: 'value' },
+    };
 
-    it('should be called with query params', () => {
-      instance.delete('/', {
-        data,
-      });
+    const http = new HTTPTransport('/test');
 
-      expect(requests[0].requestBody).to.eq(JSON.stringify(data));
-    });
-  });
+    http
+      .request(url, options)
+      .then((response) => {
+        assert.isNotNull(response);
 
-  describe('method delete()', () => {
-    it('should be called with DELETE method', () => {
-      instance.delete('/');
+        assert.deepEqual(
+          JSON.stringify(response),
+          JSON.stringify({ message: 'Success' }),
+        );
 
-      expect(requests[0].method).to.eq('DELETE');
-    });
+        done();
+      })
+      .catch(done);
+    requests[0].respond(
+      200,
+      { 'Content-Type': 'application/json;charset=utf-8' },
+      JSON.stringify({ message: 'Success' }),
+    );
 
-    it('should be called with body', () => {
-      instance.delete('/', {
-        data,
-      });
-
-      expect(requests[0].requestBody).to.eq(JSON.stringify(data));
-    });
-  });
-
-  describe('method patch()', () => {
-    it('should be called with PATCH method', () => {
-      instance.patch('/');
-
-      expect(requests[0].method).to.eq('PATCH');
-    });
-
-    it('should be called with body', () => {
-      instance.patch('/', {
-        data,
-      });
-
-      expect(requests[0].requestBody).to.eq(JSON.stringify(data));
-    });
-  });
-
-  describe('method put()', () => {
-    it('should be called with PUT method', () => {
-      instance.put('/');
-
-      expect(requests[0].method).to.eq('PUT');
-    });
-
-    it('should be called with body', () => {
-      instance.put('/', {
-        data,
-      });
-
-      expect(requests[0].requestBody).to.eq(JSON.stringify(data));
-    });
+    expect(requests[0].method).to.equal(METHOD.POST);
+    expect(requests[0].url).to.equal('/test');
+    expect(requests[0].requestHeaders['Content-Type']).to.equal(
+      'application/json;charset=utf-8',
+    );
+    expect(requests[0].requestBody).to.equal(JSON.stringify(options.data));
+    expect(requests).to.have.lengthOf(2);
   });
 });

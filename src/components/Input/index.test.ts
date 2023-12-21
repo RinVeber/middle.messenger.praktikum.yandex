@@ -3,7 +3,7 @@ import sinon from 'sinon';
 import Input from '.';
 
 describe('Input component', () => {
-  it('Validate is blur', () => {
+  it('Валидация по блюру', () => {
     const callback = sinon.stub();
 
     const props = {

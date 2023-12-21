@@ -19,7 +19,7 @@ type HTTPMethod<Data> = <Response>(
 
 export type DataType = Record<string, any>;
 
-function queryStringify(data?: DataType) {
+export function queryStringify(data?: DataType) {
   if (!data) {
     return '';
   }
