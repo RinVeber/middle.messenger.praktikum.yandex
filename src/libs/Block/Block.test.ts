@@ -4,7 +4,7 @@ import Block from './Block';
 
 class FakeBlock extends Block {
   public compile() {
-    return new global.DocumentFragment();
+    return new DocumentFragment();
   }
 
   public render() {
@@ -19,7 +19,7 @@ describe('Block', () => {
     block = new FakeBlock();
   });
 
-  it('Рроверка на установленые пропсы', () => {
+  it('Поверка на установленые пропсы', () => {
     block.setProps({ name: 'Иван' });
 
     expect('name' in block.props).to.be.deep.equal('name' in block.props);

@@ -2,15 +2,20 @@
   "name": "middle.messenger.praktikum.yandex",
   "private": true,
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "start": "npm run build && node server.js",
     "build": "tsc && vite build",
     "preview": "vite preview",
+    "lint": "eslint . --ext .ts,.js",
+    "eslint-fix": "eslint . --ext .ts,.js --fix",
     "stylelint": "stylelint '**/*{.css,.scss}'",
     "stylelint:fix": "stylelint '**/*{.css,.scss}' --fix",
-    "test": "ts-mocha src/**/*.test.ts",
-    "pre-commit": "npm run test && npm run stylelint:fix"
+    "test": "mocha src/**/*.test.ts --require ts-node/register",
+    "test2": "ts-mocha src/**/*.test.ts",
+    "test3": "npx mocha-vite-puppeteer -p 5173",
+    "pre-commit": "npm run test && npm run stylelint:fix && lint"
   },
   "devDependencies": {
     "@types/chai": "^4.3.11",
@@ -39,9 +44,11 @@
     "vite": "^4.4.5"
   },
   "dependencies": {
+    "esm-loader": "^0.1.0",
     "express": "^4.18.2",
     "handlebars": "^4.7.8",
     "handlebars-loader": "^1.7.3",
+    "mocha-vite-puppeteer": "^3.0.1",
     "nanoid": "^5.0.4",
     "node-esm-loader": "^0.3.0",
     "prettier": "^3.0.3",

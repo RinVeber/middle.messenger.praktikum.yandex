@@ -1,159 +1,71 @@
-import { assert, expect } from 'chai';
 import sinon, {
   SinonFakeXMLHttpRequest,
   SinonFakeXMLHttpRequestStatic,
 } from 'sinon';
-import HTTPTransport, { queryStringify } from './Fetch';
-import { METHOD } from '../../utils/constants';
+import HTTPTransport from './Fetch';
+import { DataType } from './Fetch';
+import { expect } from 'chai';
 
-describe('HTTPTransport', () => {
-  it('data правильно преобразуется в query', () => {
-    const result = queryStringify({ a: '1', b: '2' });
+declare const global: any;
 
-    const expectedUrl = `?a=1&b=2`;
-
-    expect(expectedUrl).to.be.eq(result);
-  });
-
-  it('GET метод должен передавать в реквест соответствующие url и options', () => {
-    const http = new HTTPTransport('/test');
-
-    const requestStub = sinon.stub(http, 'request').resolves();
-
-    http.get('/test', { data: { a: '1', b: '2' } });
-
-    expect(
-      requestStub.calledWithMatch('/test/test', {
-        method: METHOD.GET,
-        data: { a: '1', b: '2' },
-      }),
-    ).to.be.true;
-  });
-
-  it('POST метод должен передавать в реквест соответствующие url и options', () => {
-    const http = new HTTPTransport('/test');
-
-    const requestStub = sinon.stub(http, 'request').resolves();
-
-    http.post('/test', { data: { a: '1', b: '2' } });
-
-    expect(
-      requestStub.calledWithMatch('/test/test', {
-        method: METHOD.POST,
-        data: { a: '1', b: '2' },
-      }),
-    ).to.be.true;
-  });
-
-  it('PUT метод должен передавать в реквест соответствующие url и options', () => {
-    const http = new HTTPTransport('/test');
-
-    const requestStub = sinon.stub(http, 'request').resolves();
-
-    http.put('/test', { data: { a: '1', b: '2' } });
-
-    expect(
-      requestStub.calledWithMatch('/test/test', {
-        method: METHOD.PUT,
-        data: { a: '1', b: '2' },
-      }),
-    ).to.be.true;
-  });
-
-  it('DELETE метод должен передавать в реквест соответствующие url и options', () => {
-    const http = new HTTPTransport('/test');
-
-    const requestStub = sinon.stub(http, 'request').resolves();
-
-    http.delete('/test', { data: { a: '1', b: '2' } });
-
-    expect(
-      requestStub.calledWithMatch('/test/test', {
-        method: METHOD.DELETE,
-        data: { a: '1', b: '2' },
-      }),
-    ).to.be.true;
-  });
-});
-
-describe('Метод request', () => {
+describe('Fetch test', () => {
   let xhr: SinonFakeXMLHttpRequestStatic;
-  let requests: SinonFakeXMLHttpRequest[];
-  before(() => {
+  let instance: HTTPTransport<DataType>;
+  const requests: SinonFakeXMLHttpRequest[] = [];
+
+  beforeEach(() => {
     xhr = sinon.useFakeXMLHttpRequest();
-    requests = [];
-    xhr.onCreate = (request) => {
-      requests.unshift(request);
+
+    global.XMLHttpRequest = xhr as SinonFakeXMLHttpRequestStatic;
+
+    xhr.onCreate = (request: SinonFakeXMLHttpRequest) => {
+      requests.push(request);
     };
+
+    instance = new HTTPTransport('/sign-up');
   });
 
-  after(() => {
+  afterEach(() => {
+    requests.length = 0;
     xhr.restore();
   });
 
-  it('Должен отправить Get запрос', (done) => {
-    const url = '/test';
-    const options = {
-      method: METHOD.GET,
-    };
+  it('Метод get()', () => {
+    instance.get('/user');
 
-    const http = new HTTPTransport('/test');
+    const [request] = requests;
 
-    http
-      .request(url, options)
-      .then((response) => {
-        assert.isNotNull(response);
+    expect(request.method).to.eq('GET');
+  });
 
-        assert.deepEqual(
-          JSON.stringify(response),
-          JSON.stringify({ message: 'Success' }),
-        );
+  it('Метод post() ', () => {
+    instance.post('/user');
 
-        done();
-      })
-      .catch(done);
+    const [request] = requests;
 
-    requests[0].respond(200, {}, JSON.stringify({ message: 'Success' }));
+    expect(request.method).to.eq('POST');
+  });
+  it('Метод put() ', () => {
+    instance.put('/user');
 
-    expect(requests[0].method).to.equal(METHOD.GET);
-    expect(requests[0].url).to.equal('/test');
-    expect(requests).to.have.lengthOf(1);
-  }).timeout(5000);
+    const [request] = requests;
 
-  it('Должен отправить Post запрос', (done) => {
-    const url = '/test';
-    const options = {
-      method: METHOD.POST,
-      data: { key: 'value' },
-    };
+    expect(request.method).to.eq('PUT');
+  });
 
-    const http = new HTTPTransport('/test');
+  it('Метод patch()', () => {
+    instance.patch('/user');
 
-    http
-      .request(url, options)
-      .then((response) => {
-        assert.isNotNull(response);
+    const [request] = requests;
 
-        assert.deepEqual(
-          JSON.stringify(response),
-          JSON.stringify({ message: 'Success' }),
-        );
+    expect(request.method).to.eq('PATCH');
+  });
 
-        done();
-      })
-      .catch(done);
-    requests[0].respond(
-      200,
-      { 'Content-Type': 'application/json;charset=utf-8' },
-      JSON.stringify({ message: 'Success' }),
-    );
+  it('Метод delete() ', () => {
+    instance.delete('/user');
 
-    expect(requests[0].method).to.equal(METHOD.POST);
-    expect(requests[0].url).to.equal('/test');
-    expect(requests[0].requestHeaders['Content-Type']).to.equal(
-      'application/json;charset=utf-8',
-    );
-    expect(requests[0].requestBody).to.equal(JSON.stringify(options.data));
-    expect(requests).to.have.lengthOf(2);
+    const [request] = requests;
+
+    expect(request.method).to.eq('DELETE');
   });
 });

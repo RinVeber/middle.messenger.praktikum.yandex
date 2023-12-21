@@ -1,6 +1,6 @@
 import { IStylesBlock } from '../../types';
 import Block from '../../libs/Block/Block';
-import './index.scss';
+import template from './template';
 import color from './constants';
 
 interface ILinkButtonProps {
@@ -22,7 +22,7 @@ export class LinkButton extends Block<
 
   render() {
     return this.compile(
-      '<a class="{{class}}" style="color:{{color}}" href="{{href}}">{{text}}</a>',
+      template(),
       this.props,
     );
   }

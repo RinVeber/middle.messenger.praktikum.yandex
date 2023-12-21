@@ -2,7 +2,7 @@ import Block from '../Block/Block';
 import Route from '../Route/Route';
 
 export class Router {
-  private static __instance: Router;
+  private static __instance: Router | null;
 
   public routes: Route[] = [];
 
@@ -47,6 +47,15 @@ export class Router {
     this.currentRoute = route;
 
     route.render();
+  }
+
+  static destroy(): void {
+    this.__instance = null;
+  }
+
+  public reset() {
+    this.routes = [];
+    this.currentRoute = null;
   }
 
   go(pathname: string) {

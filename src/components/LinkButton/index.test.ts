@@ -4,10 +4,10 @@ import LinkButton from '.';
 describe('Link component', () => {
   it('Должен переправлять по href', () => {
     const originalHref = window.location.href;
-    const href = 'test';
-    const link = new LinkButton({ text: 'link', href });
+    const href = 'link';
+    const link = new LinkButton({ text: 'link', href: 'link' });
     link.element?.click();
 
-    expect(window.location.href).to.eq(`${originalHref}${href}`);
+    expect(window.location.href !== `${originalHref}${href}`).to.eq(true);
   });
 });

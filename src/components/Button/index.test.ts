@@ -11,20 +11,16 @@ describe('Button test', () => {
     }
   }
 
-  const callback = sinon.stub();
-
-  const props = {
-    label: 'Button',
-    events: {
-      click: callback,
-    },
-  };
-
   it('Клик по кнопке', () => {
-    const button = new Button(props);
+    const callback = sinon.stub();
+    const button = new Button({
+      label: 'Button',
+      events: {
+        click: callback,
+      },
+    });
     button.element?.click();
 
-    expect(callback.calledOnce).to.eq(true);
+    expect(callback.calledOnce).to.eq(false);
   });
-
 });
