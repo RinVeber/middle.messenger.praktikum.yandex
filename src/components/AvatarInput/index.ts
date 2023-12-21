@@ -1,4 +1,4 @@
-import Block from '../../libs/Block';
+import Block from '../../libs/Block/Block';
 import ImageInput from '../ImageInput';
 import template from './template';
 import { ImageInputProps } from '../ImageInput';

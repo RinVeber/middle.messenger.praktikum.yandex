@@ -1,6 +1,6 @@
 import template from './template';
 import LinkButton from '../../components/LinkButton';
-import Block from '../../libs/Block';
+import Block from '../../libs/Block/Block';
 import Routes from '../../utils/constants';
 
 export class ErrorPage extends Block {

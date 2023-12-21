@@ -1,4 +1,4 @@
-import Block from '../../libs/Block';
+import Block from '../../libs/Block/Block';
 import './index.scss';
 import { HTMLInputEvent } from '../../types';
 

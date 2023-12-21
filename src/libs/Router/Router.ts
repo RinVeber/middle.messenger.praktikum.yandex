@@ -1,7 +1,7 @@
-import Block from '../Block';
+import Block from '../Block/Block';
 import Route from '../Route/Route';
 
-class Router {
+export class Router {
   private static __instance: Router;
 
   public routes: Route[] = [];

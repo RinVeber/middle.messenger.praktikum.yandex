@@ -18,5 +18,9 @@
     "sourceMap": true,
     "strictNullChecks": true
   },
+  "ts-node": {
+    "files": true,
+    "extension": ["ts"],
+  },
   "include": ["src"]
 }

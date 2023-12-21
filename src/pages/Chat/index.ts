@@ -1,5 +1,5 @@
 import template from './template';
-import Block from '../../libs/Block';
+import Block from '../../libs/Block/Block';
 import './index.scss';
 import LinkButton from '../../components/LinkButton';
 import Button from '../../components/Button';

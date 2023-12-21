@@ -10,7 +10,7 @@ import ProfileFormModel from './ProfileForm.model';
 import AuthController from '../../../controllers/authController';
 import router from '../../../libs/Router/Router';
 import store, { IState, StoreEvents } from '../../../libs/Store';
-import Block from '../../../libs/Block';
+import Block from '../../../libs/Block/Block';
 import UserController from '../../../controllers/userController';
 import AvatarInput from '../../../components/AvatarInput';
 import Routes from '../../../utils/constants';

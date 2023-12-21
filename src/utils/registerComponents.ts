@@ -1,6 +1,6 @@
 import Handlebars from "handlebars/runtime";
 import { HelperOptions } from "handlebars";
-import Block from "../libs/Block";
+import Block from "../libs/Block/Block";
 
 export function registerComponent(name: string, Component: typeof Block) {
 	if (name in Handlebars.helpers) {

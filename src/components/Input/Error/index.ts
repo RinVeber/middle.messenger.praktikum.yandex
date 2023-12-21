@@ -1,5 +1,5 @@
 import { IStylesBlock } from '../../../types';
-import Block from '../../../libs/Block';
+import Block from '../../../libs/Block/Block';
 import './index.scss';
 
 interface InputErrorProps {

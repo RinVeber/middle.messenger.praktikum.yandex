@@ -1,7 +1,7 @@
 import Handlebars from 'handlebars';
 import { nanoid } from 'nanoid';
-import EventBus from './EventBus';
-import isEqual from '../libs/helperFunction/isEqual';
+import EventBus from '../EventBus';
+import isEqual from '../helperFunction/isEqual';
 
 class Block<P extends Record<string, any> = any> {
   static EVENTS = {
@@ -15,7 +15,7 @@ class Block<P extends Record<string, any> = any> {
   public id = nanoid(6);
   public children: Record<string, Block | Block[]>;
 
-  protected readonly props: P;
+ public props: P;
 
   private eventBus: () => EventBus;
   protected refs: { [key: string]: HTMLElement } = {};

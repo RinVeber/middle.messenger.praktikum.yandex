@@ -1,4 +1,4 @@
-import { METHOD } from "../utils/constants";
+import { METHOD } from "../../utils/constants";
 
 type Options<Data> = {
   method: string;
@@ -17,7 +17,7 @@ type HTTPMethod<Data> = <Response>(
   options?: OptionsWithoutMethod<Data>,
 ) => Promise<Response>;
 
-type DataType = Record<string, any>;
+export type DataType = Record<string, any>;
 
 function queryStringify(data?: DataType) {
   if (!data) {

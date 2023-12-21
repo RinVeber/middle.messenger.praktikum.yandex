@@ -1,4 +1,4 @@
-import HTTPTransport from '../libs/Fetch';
+import HTTPTransport from '../libs/Fetch/Fetch';
 
 abstract class BaseAPI {
   protected http: HTTPTransport<any>;

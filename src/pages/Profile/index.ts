@@ -1,4 +1,4 @@
-import Block from '../../libs/Block';
+import Block from '../../libs/Block/Block';
 import ProfileForm from './ProfileForm';
 import { IState } from '../../libs/Store';
 import withStore from '../../libs/WithStore';

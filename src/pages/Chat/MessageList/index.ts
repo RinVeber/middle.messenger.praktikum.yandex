@@ -1,4 +1,4 @@
-import Block from '../../../libs/Block';
+import Block from '../../../libs/Block/Block';
 import template from './template';
 // import { IUser } from '../../../api/authApi';
 import { getDay } from '../../../utils/dateTransform';

@@ -3,7 +3,7 @@ import Input from '../../../components/Input';
 import IconButton from '../../../components/IconButton';
 import Form from '../../../components/Form';
 import { required } from '../../../utils/validate';
-import Block from '../../../libs/Block';
+import Block from '../../../libs/Block/Block';
 import fileAddIcon from '../../../assets/icons/add.svg';
 import send from '../../../assets/icons/send.svg';
 

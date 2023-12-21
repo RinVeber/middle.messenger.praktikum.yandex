@@ -1,5 +1,5 @@
 import store, { IState, StoreEvents } from './Store';
-import Block from './Block';
+import Block from './Block/Block';
 
 const withStore =
   (withStateToProps: (data: IState) => any) => (Component: typeof Block) =>

@@ -1,4 +1,4 @@
-import Block from '../../libs/Block';
+import Block from '../../libs/Block/Block';
 import PasswordForm from './PasswordForm';
 
 export class PasswordSettingPage extends Block {

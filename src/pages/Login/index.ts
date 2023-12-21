@@ -1,4 +1,4 @@
-import Block from '../../libs/Block';
+import Block from '../../libs/Block/Block';
 import './index.scss';
 import LoginForm from './LoginForm';
 import FormValidator from '../../libs/Validation';

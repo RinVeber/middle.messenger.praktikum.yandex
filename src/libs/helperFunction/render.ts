@@ -1,4 +1,4 @@
-import Block from '../Block';
+import Block from '../Block/Block';
 type StringIndexed = Record<string, any>;
 
 export default function render(query: string, block: Block<StringIndexed>) {

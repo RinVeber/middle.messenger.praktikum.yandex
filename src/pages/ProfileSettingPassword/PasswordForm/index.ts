@@ -9,7 +9,7 @@ import router from '../../../libs/Router/Router';
 import UserController from '../../../controllers/userController';
 import AvatarInput from '../../../components/AvatarInput';
 import AuthController from '../../../controllers/authController';
-import Block from '../../../libs/Block';
+import Block from '../../../libs/Block/Block';
 import store, { IState, StoreEvents } from '../../../libs/Store';
 import Routes from '../../../utils/constants';
 import withStore from '../../../libs/WithStore';

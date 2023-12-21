@@ -1,4 +1,4 @@
-import Block from '../../libs/Block';
+import Block from '../../libs/Block/Block';
 import isEqual from '../../libs/helperFunction/isEqual';
 import closeIcon from '../../assets/icons/close.svg';
 import IconButton from '../IconButton';
