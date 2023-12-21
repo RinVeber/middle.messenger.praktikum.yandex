@@ -8,7 +8,7 @@ describe('Router', () => {
   const originalBack = window.history.back;
   const originalForward = window.history.forward;
   const originalPushState = window.history.pushState;
-  const getContentFake = sinon.fake.returns(document.createElement('div'));
+  // const getContentFake = sinon.fake.returns(document.createElement('div'));
 
   beforeEach(() => {
     router.reset();
