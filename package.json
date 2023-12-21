@@ -18,8 +18,7 @@
     "stylelint": "stylelint '**/*{.css,.scss}'",
     "stylelint:fix": "stylelint '**/*{.css,.scss}' --fix",
     "test": "npx mocha-vite-puppeteer -p 5173",
-    "pre-commit": "npm run test && npm run stylelint:fix",
-    "precompare": "husky install"
+    "pre-commit": "npm run test && npm run stylelint:fix"
   },
   "devDependencies": {
     "@types/chai": "^4.3.11",
