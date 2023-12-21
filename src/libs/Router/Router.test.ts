@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import router from './Router';
 import { LoginPage } from '../../pages';
-import {NotFoundPage} from '../../pages';
+import { NotFoundPage } from '../../pages';
 
 describe('Router Tests', () => {
   beforeEach(() => {
@@ -21,9 +21,7 @@ describe('Router Tests', () => {
   });
 
   it('Переход "назад"', () => {
-    router
-      .use('/sign-in', LoginPage)
-      .start();
+    router.use('/sign-in', LoginPage).start();
 
     router.back();
 
@@ -31,10 +29,7 @@ describe('Router Tests', () => {
   });
 
   it('Редирект роутов', () => {
-    router
-      .use('/not-found', NotFoundPage)
-      .use('/sign-up', LoginPage)
-      .start();
+    router.use('/not-found', NotFoundPage).use('/sign-up', LoginPage).start();
 
     router.forward();
 
