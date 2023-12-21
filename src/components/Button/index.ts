@@ -1,6 +1,7 @@
 import { IStylesBlock } from '../../types';
 import Block from '../../libs/Block/Block';
 import template from './template';
+import './index.scss';
 
 export interface ButtonProps {
   label: string;
