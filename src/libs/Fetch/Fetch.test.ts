@@ -7,7 +7,7 @@ import HTTPTransport, { queryStringify } from './Fetch';
 import { METHOD } from '../../utils/constants';
 
 describe('HTTPTransport', () => {
-  it('data правильно преобразуется в query', async () => {
+  it('data правильно преобразуется в query', () => {
     const result = queryStringify({ a: '1', b: '2' });
 
     const expectedUrl = `?a=1&b=2`;
@@ -15,12 +15,12 @@ describe('HTTPTransport', () => {
     expect(expectedUrl).to.be.eq(result);
   });
 
-  it('GET метод должен передавать в реквест соответствующие url и options', async () => {
+  it('GET метод должен передавать в реквест соответствующие url и options', () => {
     const http = new HTTPTransport('/test');
 
     const requestStub = sinon.stub(http, 'request').resolves();
 
-    await http.get('/test', { data: { a: '1', b: '2' } });
+    http.get('/test', { data: { a: '1', b: '2' } });
 
     expect(
       requestStub.calledWithMatch('/test/test', {
@@ -30,12 +30,12 @@ describe('HTTPTransport', () => {
     ).to.be.true;
   });
 
-  it('POST метод должен передавать в реквест соответствующие url и options', async () => {
+  it('POST метод должен передавать в реквест соответствующие url и options', () => {
     const http = new HTTPTransport('/test');
 
     const requestStub = sinon.stub(http, 'request').resolves();
 
-    await http.post('/test', { data: { a: '1', b: '2' } });
+    http.post('/test', { data: { a: '1', b: '2' } });
 
     expect(
       requestStub.calledWithMatch('/test/test', {
@@ -45,12 +45,12 @@ describe('HTTPTransport', () => {
     ).to.be.true;
   });
 
-  it('PUT метод должен передавать в реквест соответствующие url и options', async () => {
+  it('PUT метод должен передавать в реквест соответствующие url и options', () => {
     const http = new HTTPTransport('/test');
 
     const requestStub = sinon.stub(http, 'request').resolves();
 
-    await http.put('/test', { data: { a: '1', b: '2' } });
+    http.put('/test', { data: { a: '1', b: '2' } });
 
     expect(
       requestStub.calledWithMatch('/test/test', {
@@ -60,12 +60,12 @@ describe('HTTPTransport', () => {
     ).to.be.true;
   });
 
-  it('DELETE метод должен передавать в реквест соответствующие url и options', async () => {
+  it('DELETE метод должен передавать в реквест соответствующие url и options', () => {
     const http = new HTTPTransport('/test');
 
     const requestStub = sinon.stub(http, 'request').resolves();
 
-    await http.delete('/test', { data: { a: '1', b: '2' } });
+    http.delete('/test', { data: { a: '1', b: '2' } });
 
     expect(
       requestStub.calledWithMatch('/test/test', {
