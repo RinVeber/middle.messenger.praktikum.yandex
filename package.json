@@ -12,9 +12,7 @@
     "eslint-fix": "eslint . --ext .ts,.js --fix",
     "stylelint": "stylelint '**/*{.css,.scss}'",
     "stylelint:fix": "stylelint '**/*{.css,.scss}' --fix",
-    "test": "mocha src/**/*.test.ts --require ts-node/register",
-    "test2": "ts-mocha src/**/*.test.ts",
-    "test3": "npx mocha-vite-puppeteer -p 5173",
+    "test": "npx mocha-vite-puppeteer -p 5173",
     "pre-commit": "npm run test && npm run stylelint:fix && lint"
   },
   "devDependencies": {
@@ -38,7 +36,6 @@
     "sinon": "^17.0.1",
     "stylelint": "^15.10.3",
     "stylelint-config-standard-scss": "^11.0.0",
-    "ts-mocha": "^10.0.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
