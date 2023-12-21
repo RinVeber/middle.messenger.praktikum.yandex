@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import sinon from 'sinon';
-import Input from '.';
+import Input from './index';
 
 describe('Input component', () => {
   it('Валидация по блюру', () => {

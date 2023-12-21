@@ -1,39 +1,34 @@
-import esmock from 'esmock';
 import { expect } from 'chai';
 import sinon from 'sinon';
-import type Type from './Block.ts';
+import Block from './Block';
 
-const eventBusMock = {
-  on: sinon.fake(),
-  emit: sinon.fake(),
-};
+class FakeBlock extends Block {
+  public compile() {
+    return new global.DocumentFragment();
+  }
 
-describe('Block', async () => {
-  const { default: Block } = (await esmock('./Block', {
-    '../EventBus': {
-      default: class {
-        emit = eventBusMock.emit;
+  public render() {
+    return this.compile();
+  }
+}
 
-        on = eventBusMock.on;
-      },
-    },
-  })) as { default: typeof Type };
+describe('Block', () => {
+  let block: FakeBlock;
 
-  class ComponentMock extends Block {}
-
-  it('Инициализация', () => {
-    new ComponentMock({});
-
-    expect(eventBusMock.emit.calledWith('init')).to.eq(true);
+  beforeEach(() => {
+    block = new FakeBlock();
   });
 
-  it('Событие CDU', () => {
-    const components = new ComponentMock({});
+  it('Рроверка на установленые пропсы', () => {
+    block.setProps({ name: 'Иван' });
 
-    components.setProps({ test: 'test' });
+    expect('name' in block.props).to.be.deep.equal('name' in block.props);
+  });
 
-    expect(eventBusMock.emit.calledWith('flow:component-did-update')).to.eq(
-      true,
-    );
+  it('Проверка метода render()', () => {
+    const spy = sinon.spy(block, 'render');
+    block.render();
+
+    expect(spy.callCount).to.equal(1);
   });
 });

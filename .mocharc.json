@@ -4,9 +4,5 @@
   "loader": "ts-node/esm",
   "require": [
       "./mochaSetup.js"
-  ],
-  "node-option": [
-      "loader=node-esm-loader",
-      "loader=esmock"
   ]
 }

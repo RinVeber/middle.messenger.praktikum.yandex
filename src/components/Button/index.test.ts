@@ -1,5 +1,4 @@
 import { expect } from 'chai';
-import { describe, it } from 'mocha';
 import sinon from 'sinon';
 import Block from '../../libs/Block/Block';
 import { IStylesBlock } from '../../types';

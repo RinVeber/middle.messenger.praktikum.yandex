@@ -20,7 +20,6 @@ import withStore from '../../libs/WithStore';
 import Routes from '../../utils/constants';
 import { InputSearch } from '../../components/SearchInput';
 import AvatarInput from '../../components/AvatarInput';
-import UserController from '../../controllers/userController';
 import { groupMessagesByDay } from '../../utils/dateTransform';
 import { MessageType } from '../../utils/apiTransform';
 import { AvatarDefault } from '../../components';
