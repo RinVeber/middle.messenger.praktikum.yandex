@@ -17,7 +17,7 @@
     "eslint-fix": "eslint . --ext .ts,.js --fix",
     "stylelint": "stylelint '**/*{.css,.scss}'",
     "stylelint:fix": "stylelint '**/*{.css,.scss}' --fix",
-    "test": "npx mocha-vite-puppeteer -p 5173",
+    "test": "npx mocha-vite-puppeteer -p 3000",
     "pre-commit": "npm run test && npm run stylelint:fix",
     "prepare": "husky install"
   },

@@ -43,7 +43,7 @@ describe('Router', () => {
 
   it('Страница логина на роуте /', () => {
     router.go('/');
-    expect(window.location.href).to.be.eq('http://localhost:5173/');
+    expect(window.location.href).to.be.eq('http://localhost:3000/');
   });
 
   it('Редирект роутов', () => {
