@@ -13,6 +13,7 @@ export interface IMessageList {
   time: string
   unreadCount: number
   isRead: boolean
+  isAvatar: boolean
   // lastMessage: {
   //   content: string;
   //   id: number;
@@ -29,7 +30,8 @@ export class MessageList extends Block<IMessageList> {
   constructor(props: IMessageList) {
     super({
       ...props,
-      avatar: props.avatar ? props.avatar : defaultAvatar,
+      isAvatar: props.avatar == null ? false : true,
+      avatar: props.avatar || defaultAvatar,
       time: props.time != '' ? getDay(props.time) : 'now',
       isRead: props.unreadCount > 0
     })
