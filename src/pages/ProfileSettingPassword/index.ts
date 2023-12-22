@@ -1,18 +1,18 @@
-import Block from '../../libs/Block/Block';
-import PasswordForm from './PasswordForm';
+import Block from '../../libs/Block/Block'
+import PasswordForm from './PasswordForm'
 
 export class PasswordSettingPage extends Block {
   constructor() {
-    super();
+    super()
   }
 
   init(): void {
-    this.children.PasswordForm = new PasswordForm({});
+    this.children.PasswordForm = new PasswordForm({})
   }
 
   protected render(): DocumentFragment {
-    return this.compile('<section class="profile">{{{PasswordForm}}}<section>', this.props);
+    return this.compile('<section class="profile">{{{PasswordForm}}}<section>', this.props)
   }
 }
 
-export default PasswordSettingPage;
+export default PasswordSettingPage

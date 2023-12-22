@@ -1,10 +1,10 @@
 function trim(str: string, substr: string = ' \xA0') {
-  const regex = new RegExp(`^([${substr}])*(.*?)([${substr}])*$`, 'g');
-  const res = regex.exec(str);
+  const regex = new RegExp(`^([${substr}])*(.*?)([${substr}])*$`, 'g')
+  const res = regex.exec(str)
   if (!res) {
-    return '';
+    return ''
   }
-  return res[2] || '';
+  return res[2] || ''
 }
 
-export default trim;
+export default trim

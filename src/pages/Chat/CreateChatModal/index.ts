@@ -1,25 +1,26 @@
-import Modal from '../../../components/Modal';
-import CreateForm from './CreateForm';
+import Modal from '../../../components/Modal'
+import CreateForm from './CreateForm'
 
 class CreateChatModal extends Modal {
   constructor(props: any) {
-    super(props);
+    super(props)
   }
+
   init(): void {
     this.children.CreateChatForm = new CreateForm({
       events: {
         close: () => {
           this.setProps({
-            isShow: false,
-          });
-        },
-      },
-    });
+            isShow: false
+          })
+        }
+      }
+    })
   }
 
   renderModal(): string {
-    return '{{{CreateChatForm}}}';
+    return '{{{CreateChatForm}}}'
   }
 }
 
-export default CreateChatModal;
+export default CreateChatModal

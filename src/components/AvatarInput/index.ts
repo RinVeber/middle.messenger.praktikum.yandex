@@ -1,14 +1,13 @@
-import Block from '../../libs/Block/Block';
-import ImageInput from '../ImageInput';
-import template from './template';
-import { ImageInputProps } from '../ImageInput';
+import Block from '../../libs/Block/Block'
+import ImageInput, { type ImageInputProps } from '../ImageInput'
+import template from './template'
 
 export class AvatarInput extends Block<ImageInputProps> {
   constructor(props: ImageInputProps) {
     super({
       ...props,
-      size: props.size || '130px',
-    });
+      size: props.size || '130px'
+    })
   }
 
   init(): void {
@@ -18,19 +17,19 @@ export class AvatarInput extends Block<ImageInputProps> {
         ...this.props.events,
         change: (event) => {
           if ((event.currentTarget as HTMLElement).id === this.props.name) {
-            this.props.events?.change?.(event);
+            this.props.events?.change?.(event)
           }
         },
         click: (event) => {
-          event.stopPropagation();
-        },
-      },
-    });
+          event.stopPropagation()
+        }
+      }
+    })
   }
 
   render() {
-    return this.compile(template(), this.props);
+    return this.compile(template(), this.props)
   }
 }
 
-export default AvatarInput;
+export default AvatarInput

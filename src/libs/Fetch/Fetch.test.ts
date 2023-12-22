@@ -1,71 +1,70 @@
 import sinon, {
-  SinonFakeXMLHttpRequest,
-  SinonFakeXMLHttpRequestStatic,
-} from 'sinon';
-import HTTPTransport from './Fetch';
-import { DataType } from './Fetch';
-import { expect } from 'chai';
+  type SinonFakeXMLHttpRequest,
+  type SinonFakeXMLHttpRequestStatic
+} from 'sinon'
+import { expect } from 'chai'
+import HTTPTransport, { type DataType } from './Fetch'
 
-declare const global: any;
+declare const global: any
 
 describe('Fetch test', () => {
-  let xhr: SinonFakeXMLHttpRequestStatic;
-  let instance: HTTPTransport<DataType>;
-  const requests: SinonFakeXMLHttpRequest[] = [];
+  let xhr: SinonFakeXMLHttpRequestStatic
+  let instance: HTTPTransport<DataType>
+  const requests: SinonFakeXMLHttpRequest[] = []
 
   beforeEach(() => {
-    xhr = sinon.useFakeXMLHttpRequest();
+    xhr = sinon.useFakeXMLHttpRequest()
 
-    global.XMLHttpRequest = xhr as SinonFakeXMLHttpRequestStatic;
+    global.XMLHttpRequest = xhr
 
     xhr.onCreate = (request: SinonFakeXMLHttpRequest) => {
-      requests.push(request);
-    };
+      requests.push(request)
+    }
 
-    instance = new HTTPTransport('/sign-up');
-  });
+    instance = new HTTPTransport('/sign-up')
+  })
 
   afterEach(() => {
-    requests.length = 0;
-    xhr.restore();
-  });
+    requests.length = 0
+    xhr.restore()
+  })
 
   it('Метод get()', () => {
-    instance.get('/user');
+    instance.get('/user')
 
-    const [request] = requests;
+    const [request] = requests
 
-    expect(request.method).to.eq('GET');
-  });
+    expect(request.method).to.eq('GET')
+  })
 
   it('Метод post() ', () => {
-    instance.post('/user');
+    instance.post('/user')
 
-    const [request] = requests;
+    const [request] = requests
 
-    expect(request.method).to.eq('POST');
-  });
+    expect(request.method).to.eq('POST')
+  })
   it('Метод put() ', () => {
-    instance.put('/user');
+    instance.put('/user')
 
-    const [request] = requests;
+    const [request] = requests
 
-    expect(request.method).to.eq('PUT');
-  });
+    expect(request.method).to.eq('PUT')
+  })
 
   it('Метод patch()', () => {
-    instance.patch('/user');
+    instance.patch('/user')
 
-    const [request] = requests;
+    const [request] = requests
 
-    expect(request.method).to.eq('PATCH');
-  });
+    expect(request.method).to.eq('PATCH')
+  })
 
   it('Метод delete() ', () => {
-    instance.delete('/user');
+    instance.delete('/user')
 
-    const [request] = requests;
+    const [request] = requests
 
-    expect(request.method).to.eq('DELETE');
-  });
-});
+    expect(request.method).to.eq('DELETE')
+  })
+})

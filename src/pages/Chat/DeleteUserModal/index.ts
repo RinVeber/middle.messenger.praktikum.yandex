@@ -1,25 +1,26 @@
-import Modal from '../../../components/Modal';
-import DeleteUserForm from './DeleteUserForm';
+import Modal from '../../../components/Modal'
+import DeleteUserForm from './DeleteUserForm'
 
 class DeleteUserModal extends Modal {
   constructor(props: any) {
-    super(props);
+    super(props)
   }
+
   init(): void {
     this.children.form = new DeleteUserForm({
       events: {
         close: () => {
           this.setProps({
-            isShow: false,
-          });
-        },
-      },
-    });
+            isShow: false
+          })
+        }
+      }
+    })
   }
 
   renderModal(): string {
-    return '{{{form}}}';
+    return '{{{form}}}'
   }
 }
 
-export default DeleteUserModal;
+export default DeleteUserModal

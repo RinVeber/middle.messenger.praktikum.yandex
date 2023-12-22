@@ -1,4 +1,4 @@
-import './index.scss';
+import './index.scss'
 
 const template = () => `
     <div class="modal">
@@ -10,6 +10,6 @@ const template = () => `
     <div class="modal__container">
         {{{buttonCreate}}}
     </div>
-`;
+`
 
-export default template;
+export default template

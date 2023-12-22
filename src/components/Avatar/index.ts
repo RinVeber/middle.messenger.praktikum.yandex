@@ -1,15 +1,15 @@
-import Block from '../../libs/Block/Block';
-import defaultAvatar from '../../assets/images/defaultAvatar.svg';
+import Block from '../../libs/Block/Block'
+import defaultAvatar from '../../assets/images/defaultAvatar.svg'
 
 interface IAvatarProps {
-  avatar?: string;
-  isExistAvatar?: boolean;
-  defaultAvatar?: string;
+  avatar?: string
+  isExistAvatar?: boolean
+  defaultAvatar?: string
 }
 
 export class AvatarDefault extends Block<IAvatarProps> {
   constructor(props: IAvatarProps) {
-    super({ ...props, defaultAvatar: defaultAvatar });
+    super({ ...props, defaultAvatar })
   }
 
   render() {
@@ -19,7 +19,7 @@ export class AvatarDefault extends Block<IAvatarProps> {
     {{else}}
     <img class="avatar-chat" src="{{defaultAvatar}}"/>
     {{/if}}`,
-      this.props,
-    );
+      this.props
+    )
   }
 }

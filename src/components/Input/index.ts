@@ -1,29 +1,29 @@
-import { IStylesBlock } from '../../types';
-import Block from '../../libs/Block/Block';
-import InputError from './Error';
-import InputField from './InputField';
-import template from './template';
+import { type IStylesBlock } from '../../types'
+import Block from '../../libs/Block/Block'
+import InputError from './Error'
+import InputField from './InputField'
+import template from './template'
 
 interface InputProps {
-  label?: string;
-  name: string;
-  variant?: 'standard' | 'custom';
-  type?: 'password';
+  label?: string
+  name: string
+  variant?: 'standard' | 'custom'
+  type?: 'password'
   events?: {
-    focus?: () => void;
-    blur?: () => void;
-    focusout?: (event: HTMLFormElement) => void;
-  };
-  validate?: (value: string) => string;
+    focus?: () => void
+    blur?: () => void
+    focusout?: (event: HTMLFormElement) => void
+  }
+  validate?: (value: string) => string
 }
 
 export class Input extends Block<IStylesBlock<InputProps>> {
-  isValid: boolean = true;
+  isValid: boolean = true
 
   constructor(props: InputProps) {
     super({
-      ...props,
-    });
+      ...props
+    })
   }
 
   init(): void {
@@ -32,23 +32,23 @@ export class Input extends Block<IStylesBlock<InputProps>> {
       events: {
         blur: () => {
           if (this.props.validate) {
-            const inputBlock = this.children.input as Block;
-            const element = inputBlock.element as HTMLInputElement;
-            const { value } = element;
-            const error = this.props.validate(value);
+            const inputBlock = this.children.input as Block
+            const element = inputBlock.element as HTMLInputElement
+            const { value } = element
+            const error = this.props.validate(value)
             this.isValid = !error;
-            (this.children.error as Block).setProps({ text: error });
+            (this.children.error as Block).setProps({ text: error })
           }
-        },
-      },
-    });
+        }
+      }
+    })
 
-    this.children.error = new InputError({ text: '' });
+    this.children.error = new InputError({ text: '' })
   }
 
   render() {
-    return this.compile(template(), this.props);
+    return this.compile(template(), this.props)
   }
 }
 
-export default Input;
+export default Input

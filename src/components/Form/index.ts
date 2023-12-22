@@ -1,6 +1,6 @@
-import Block from '../../libs/Block/Block';
-import Input from '../Input';
-import './index.scss';
+import Block from '../../libs/Block/Block'
+import Input from '../Input'
+import './index.scss'
 
 export abstract class Form extends Block {
   constructor({ events, ...props }: any) {
@@ -9,47 +9,47 @@ export abstract class Form extends Block {
       events: {
         ...events,
         submit: (event: any) => {
-          event.preventDefault();
-          this.markAllAsTouched();
+          event.preventDefault()
+          this.markAllAsTouched()
           if (this.check()) {
-            const formData = new FormData(this.element as HTMLFormElement);
-            const values = Object.fromEntries(formData);
-            this.submit(values);
+            const formData = new FormData(this.element as HTMLFormElement)
+            const values = Object.fromEntries(formData)
+            this.submit(values)
           }
-        },
-      },
-    });
+        }
+      }
+    })
   }
 
-  abstract submit(value: any): void;
-  abstract renderForm(): string;
+  abstract submit(value: any): void
+  abstract renderForm(): string
 
   markAllAsTouched(): void {
     Object.keys(this.children).forEach((childName) => {
       if (this.children[childName] instanceof Input) {
-        const element = this.children[childName] as Input;
-        const input = element.children.input as Block;
-        input.element!.dispatchEvent(new Event('blur'));
+        const element = this.children[childName] as Input
+        const input = element.children.input as Block
+        input.element!.dispatchEvent(new Event('blur'))
       }
-    });
+    })
   }
 
   check(): boolean {
-    let res = true;
+    let res = true
     Object.keys(this.children).forEach((childName) => {
       if (this.children[childName] instanceof Input) {
-        res = res && (this.children[childName] as Input).isValid;
+        res = res && (this.children[childName] as Input).isValid
       }
-    });
-    return res;
+    })
+    return res
   }
 
   render() {
     return this.compile(
       `<form class='form'>${this.renderForm()}</form>`,
-      this.props,
-    );
+      this.props
+    )
   }
 }
 
-export default Form;
+export default Form

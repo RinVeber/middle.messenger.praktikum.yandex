@@ -4,3 +4,4 @@ public
 build
 dist
 sever.js
+mocha-setup.js

@@ -26,6 +26,6 @@ const template = () => `
         {{{buttonExit}}}
         </div>
     </div>
-`;
+`
 
-export default template;
+export default template

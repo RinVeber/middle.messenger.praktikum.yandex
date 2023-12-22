@@ -1,4 +1,4 @@
-import './index.scss';
+import './index.scss'
 
 const template = () => `<button
 class="{{class}}"
@@ -6,6 +6,6 @@ type="{{type}}"
 {{#if disabled}}
   disabled
 {{/if}}
->{{label}}</button>`;
+>{{label}}</button>`
 
-export default template;
+export default template

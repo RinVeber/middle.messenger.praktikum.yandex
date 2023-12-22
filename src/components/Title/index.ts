@@ -1,22 +1,22 @@
-import { IStylesBlock } from '../../types';
-import Block from '../../libs/Block/Block';
-import './index.scss';
+import { type IStylesBlock } from '../../types'
+import Block from '../../libs/Block/Block'
+import './index.scss'
 
 interface ITitleProps {
-  text: string;
+  text: string
 }
 
 export class Title extends Block<IStylesBlock<ITitleProps>> {
   constructor(props: ITitleProps) {
     super({
       ...props,
-      class: 'title',
-    });
+      class: 'title'
+    })
   }
 
   render() {
-    return this.compile('<h1 class="{{class}}">{{text}}</h1>', this.props);
+    return this.compile('<h1 class="{{class}}">{{text}}</h1>', this.props)
   }
 }
 
-export default Title;
+export default Title

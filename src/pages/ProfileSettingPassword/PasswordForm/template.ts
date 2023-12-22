@@ -1,4 +1,4 @@
-import '../../Profile/index.scss';
+import '../../Profile/index.scss'
 
 const template = () => `
 <div class="profile__block">
@@ -20,6 +20,6 @@ const template = () => `
         {{{buttonCancel}}}
   
         </div>
-`;
+`
 
-export default template;
+export default template

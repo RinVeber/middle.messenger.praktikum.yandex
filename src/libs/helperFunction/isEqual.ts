@@ -1,30 +1,30 @@
-import { isArrayOrObject } from './PlaneObject';
+import { isArrayOrObject } from './PlaneObject'
 
 type PlainObject<T = any> = {
   [k in string]: T;
-};
+}
 
 function isEqual(lhs: PlainObject, rhs: PlainObject) {
   if (Object.keys(lhs).length !== Object.keys(rhs).length) {
-    return false;
+    return false
   }
 
-  let res = true;
+  let res = true
 
   Object.entries(lhs).forEach(([key, value]) => {
-    const rightValue = rhs[key];
+    const rightValue = rhs[key]
     if (isArrayOrObject(value) && isArrayOrObject(rightValue)) {
       if (!isEqual(value, rightValue)) {
-        res = false;
+        res = false
       }
     }
 
     if (value !== rightValue) {
-      res = false;
+      res = false
     }
-  });
+  })
 
-  return res;
+  return res
 }
 
-export default isEqual;
+export default isEqual

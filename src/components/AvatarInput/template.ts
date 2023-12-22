@@ -1,5 +1,5 @@
-import './index.scss';
-import defaultAvatar from '../../assets/images/defaultAvatar.svg';
+import './index.scss'
+import defaultAvatar from '../../assets/images/defaultAvatar.svg'
 
 const template = () => `
 
@@ -12,6 +12,6 @@ const template = () => `
         {{/if}}
       </label>
       {{{inputAvatar}}}
-    </div>`;
+    </div>`
 
-export default template;
+export default template

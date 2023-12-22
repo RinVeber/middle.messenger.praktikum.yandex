@@ -1,43 +1,42 @@
-import BaseAPI from '../utils/baseApi';
+import BaseAPI from '../utils/baseApi'
 
 export interface IAddUserChat {
-  users: string[];
-  chatId: string;
+  users: string[]
+  chatId: string
 }
 
-
 export interface ICreateChat {
-  title: string;
+  title: string
 }
 
 class ChatAPI extends BaseAPI {
   constructor() {
-    super('/chats');
+    super('/chats')
   }
 
-  getChats() {
-    return this.http.get('');
+  async getChats() {
+    return await this.http.get('')
   }
 
-  createChat(data: ICreateChat) {
-    return this.http.post('', { data });
+  async createChat(data: ICreateChat) {
+    return await this.http.post('', { data })
   }
 
-  getChatToken(id: string) {
-    return this.http.post<{ token: string }>(`/token/${id}`);
+  async getChatToken(id: string) {
+    return await this.http.post<{ token: string }>(`/token/${id}`)
   }
 
-  addUserInChat(data: IAddUserChat) {
-    return this.http.put('/users', { data });
+  async addUserInChat(data: IAddUserChat) {
+    return await this.http.put('/users', { data })
   }
 
-  removeUserInChat(data: IAddUserChat) {
-    return this.http.delete('/users', { data });
+  async removeUserInChat(data: IAddUserChat) {
+    return await this.http.delete('/users', { data })
   }
 
-  updateAvatar(data: FormData) {
-    return this.http.put('/avatar', { data });
+  async updateAvatar(data: FormData) {
+    return await this.http.put('/avatar', { data })
   }
 }
 
-export default new ChatAPI();
+export default new ChatAPI()

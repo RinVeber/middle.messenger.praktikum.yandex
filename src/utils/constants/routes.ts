@@ -8,65 +8,64 @@ export enum Routes {
   ServerError = '/server-error',
 }
 
-
-export const BASE_URL = window.origin;
-export const HOME = '/';
-export const LOGIN = "/login";
-export const REGISTER = "/register";
-export const PROFILE = "/profile";
-export const CHATS = "/chat";
-export const ERROR404 = "/not-found";
-export const ERROR500 = "/server-error";
-export const ROOT_DIV = "#app";
+export const BASE_URL = window.origin
+export const HOME = '/'
+export const LOGIN = '/login'
+export const REGISTER = '/register'
+export const PROFILE = '/profile'
+export const CHATS = '/chat'
+export const ERROR404 = '/not-found'
+export const ERROR500 = '/server-error'
+export const ROOT_DIV = '#app'
 
 export const inputsProperties = {
   login: {
-    name: "login",
-    label: "login",
-    type: "text",
+    name: 'login',
+    label: 'login',
+    type: 'text'
   },
   password: {
-    name: "password",
-    label: "password",
-    type: "password",
+    name: 'password',
+    label: 'password',
+    type: 'password'
   },
   passwordAgain: {
-    name: "password (again)",
-    label: "password (again)",
-    type: "password",
+    name: 'password (again)',
+    label: 'password (again)',
+    type: 'password'
   },
   oldPassword: {
-    name: "old_password",
-    label: "old password",
-    type: "password",
+    name: 'old_password',
+    label: 'old password',
+    type: 'password'
   },
   email: {
-    name: "email",
-    label: "email",
-    type: "email",
+    name: 'email',
+    label: 'email',
+    type: 'email'
   },
   firstName: {
-    name: "first_name",
-    label: "name",
-    type: "text",
+    name: 'first_name',
+    label: 'name',
+    type: 'text'
   },
   secondName: {
-    name: "second_name",
-    label: "surname",
-    type: "text",
+    name: 'second_name',
+    label: 'surname',
+    type: 'text'
   },
   phone: {
-    name: "phone",
-    label: "phone number",
-    type: "tel",
+    name: 'phone',
+    label: 'phone number',
+    type: 'tel'
   },
   displayName: {
-    name: "display_name",
-    label: "chat name",
-    type: "text",
+    name: 'display_name',
+    label: 'chat name',
+    type: 'text'
   },
   message: {
-    name: "message",
-    type: "text",
-  },
-};
+    name: 'message',
+    type: 'text'
+  }
+}
