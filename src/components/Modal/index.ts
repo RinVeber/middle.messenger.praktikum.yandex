@@ -1,11 +1,11 @@
-import Block from '../../libs/Block';
-import isEqual from '../../libs/helperFunction/isEqual';
-import closeIcon from '../../assets/icons/close.svg';
-import IconButton from '../IconButton';
-import './index.scss';
+import Block from '../../libs/Block/Block'
+import isEqual from '../../libs/helperFunction/isEqual'
+import closeIcon from '../../assets/icons/close.svg'
+import IconButton from '../IconButton'
+import './index.scss'
 
 interface IModalProps {
-  isShow: boolean;
+  isShow: boolean
 }
 
 export abstract class Modal extends Block {
@@ -19,23 +19,23 @@ export abstract class Modal extends Block {
         events: {
           click: () => {
             this.setProps({
-              isShow: false,
-            });
-          },
-        },
-      }),
-    });
+              isShow: false
+            })
+          }
+        }
+      })
+    })
   }
 
-  abstract renderModal(): string;
+  abstract renderModal(): string
 
   protected componentDidUpdate(oldProps: any, newProps: any): boolean {
     if (newProps.isShow) {
-      this.element?.classList.add('show');
+      this.element?.classList.add('show')
     } else {
-      this.element?.classList.remove('show');
+      this.element?.classList.remove('show')
     }
-    return isEqual(oldProps, newProps);
+    return isEqual(oldProps, newProps)
   }
 
   render() {
@@ -46,9 +46,9 @@ export abstract class Modal extends Block {
         ${this.renderModal()}
       </div>
     </div>`,
-      this.props,
-    );
+      this.props
+    )
   }
 }
 
-export default Modal;
+export default Modal

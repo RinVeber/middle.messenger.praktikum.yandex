@@ -3,3 +3,5 @@ public
 .eslintrc.js
 build
 dist
+sever.js
+mocha-setup.js

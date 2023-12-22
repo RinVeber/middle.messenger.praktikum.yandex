@@ -1,4 +1,4 @@
-import './index.scss';
+import './index.scss'
 
 const template = () => `
     <div class="chat__message-list" 
@@ -24,6 +24,6 @@ const template = () => `
 
         </div>
     </div>
-`;
+`
 
-export default template;
+export default template

@@ -18,5 +18,11 @@
     "sourceMap": true,
     "strictNullChecks": true
   },
+  "ts-node": {
+    "files": true,
+    "esm": true,
+    "experimentalSpecifierResolution": "node",
+    "transpileOnly": true
+  },
   "include": ["src"]
 }

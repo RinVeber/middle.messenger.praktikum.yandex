@@ -1,42 +1,43 @@
-import Button from '../../../../components/Button';
-import Form from '../../../../components/Form';
-import Input from '../../../../components/Input';
-import ChatController from '../../../../controllers/chatController';
-import { IState } from '../../../../libs/Store';
-import withStore from '../../../../libs/WithStore';
-import { required } from '../../../../utils/validate';
-import template from './template';
+import Button from '../../../../components/Button'
+import Form from '../../../../components/Form'
+import Input from '../../../../components/Input'
+import ChatController from '../../../../controllers/chatController'
+import { type IState } from '../../../../libs/Store'
+import withStore from '../../../../libs/WithStore'
+import { required } from '../../../../utils/validate'
+import template from './template'
 
 class DeleteUserForm extends Form {
   constructor(props: any) {
-    super(props);
+    super(props)
   }
+
   init(): void {
     this.children.idInput = new Input({
       label: 'id',
       name: 'id',
-      validate: required,
-    });
+      validate: required
+    })
     this.children.buttonAdd = new Button({
-      label: 'Удалить',
-    });
+      label: 'Удалить'
+    })
   }
 
   async submit(value: { id: string }): Promise<void> {
     await ChatController.removeUserInChat({
       users: [value.id],
-      chatId: this.props.chatId,
-    });
-    this.props.events.close();
+      chatId: this.props.chatId
+    })
+    this.props.events.close()
   }
 
   renderForm(): string {
-    return template();
+    return template()
   }
 }
 
 const withStateToProps = (state: IState) => ({
-  chatId: state.chatId,
-});
+  chatId: state.chatId
+})
 
-export default withStore(withStateToProps)(DeleteUserForm);
+export default withStore(withStateToProps)(DeleteUserForm)

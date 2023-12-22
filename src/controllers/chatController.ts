@@ -1,60 +1,60 @@
-import chatApi, { IAddUserChat, ICreateChat } from '../api/chatApi';
-import store from '../libs/Store';
+import chatApi, { type IAddUserChat, type ICreateChat } from '../api/chatApi'
+import store from '../libs/Store'
 
 class ChatController {
   static async getChats() {
     try {
-      const chats = await chatApi.getChats();
+      const chats = await chatApi.getChats()
 
-      store.setState('chats', chats);
+      store.setState('chats', chats)
     } catch (error) {
-      console.error(error);
+      console.error(error)
     }
   }
 
   static async createChat(value: ICreateChat) {
     try {
-      await chatApi.createChat(value);
-      await this.getChats();
+      await chatApi.createChat(value)
+      await this.getChats()
     } catch (error) {
-      console.error(error);
+      console.error(error)
     }
   }
 
   static async getChatToken(id: string) {
     try {
-      const getToken = await chatApi.getChatToken(id);
+      const getToken = await chatApi.getChatToken(id)
 
-      store.setState('chatToken', getToken.token);
+      store.setState('chatToken', getToken.token)
     } catch (error) {
-      console.error(error);
+      console.error(error)
     }
   }
 
   static async addUserInChat(data: IAddUserChat) {
     try {
-      await chatApi.addUserInChat(data);
+      await chatApi.addUserInChat(data)
     } catch (error) {
-      console.error(error);
+      console.error(error)
     }
   }
 
   static async removeUserInChat(data: IAddUserChat) {
     try {
-      await chatApi.removeUserInChat(data);
+      await chatApi.removeUserInChat(data)
     } catch (error) {
-      console.error(error);
+      console.error(error)
     }
   }
 
   static async updateAvatar(data: FormData) {
     try {
-      await chatApi.updateAvatar(data);
-      await this.getChats();
+      await chatApi.updateAvatar(data)
+      await this.getChats()
     } catch (error) {
-      console.error(error);
+      console.error(error)
     }
   }
 }
 
-export default ChatController;
+export default ChatController

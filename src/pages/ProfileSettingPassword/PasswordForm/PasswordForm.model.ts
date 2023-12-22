@@ -1,7 +1,7 @@
 interface PasswordFormModel {
-  oldPassword: string;
-  newPassword: string;
-  confirmPassword: string;
+  oldPassword: string
+  newPassword: string
+  confirmPassword: string
 }
 
-export default PasswordFormModel;
+export default PasswordFormModel

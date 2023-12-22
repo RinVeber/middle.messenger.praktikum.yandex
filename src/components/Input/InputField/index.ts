@@ -1,43 +1,43 @@
-import { IStylesBlock } from '../../../types';
-import Block from '../../../libs/Block';
-import isEqual from '../../../libs/helperFunction/isEqual';
-import './index.scss';
+import { type IStylesBlock } from '../../../types'
+import Block from '../../../libs/Block/Block'
+import isEqual from '../../../libs/helperFunction/isEqual'
+import './index.scss'
 
 export interface InputFieldProps {
-  label?: string;
-  name: string;
-  placeholder?: string;
-  value?: string;
-  variant?:'custom' | 'standard' ;
+  label?: string
+  name: string
+  placeholder?: string
+  value?: string
+  variant?: 'custom' | 'standard'
   events?: {
-    focus?: () => void;
-    blur?: () => void;
-    focusout?: (event: HTMLFormElement) => void;
-  };
+    focus?: () => void
+    blur?: () => void
+    focusout?: (event: HTMLFormElement) => void
+  }
 }
 
 class InputField extends Block<IStylesBlock<InputFieldProps>> {
   constructor(props: InputFieldProps) {
     super({
       ...props,
-      class: props.variant || 'standard',
-    });
+      class: props.variant || 'standard'
+    })
   }
 
   protected componentDidUpdate(
     oldProps: IStylesBlock<InputFieldProps>,
-    newProps: IStylesBlock<InputFieldProps>,
+    newProps: IStylesBlock<InputFieldProps>
   ): boolean {
     if (!isEqual(oldProps, newProps)) {
-      return true;
+      return true
     }
     if (
       newProps.value !== undefined &&
       (this.element as HTMLInputElement).value !== newProps.value
     ) {
-      return true;
+      return true
     }
-    return false;
+    return false
   }
 
   render() {
@@ -49,9 +49,9 @@ class InputField extends Block<IStylesBlock<InputFieldProps>> {
       name="{{name}}"
       type="{{type}}"
     />`,
-      this.props,
-    );
+      this.props
+    )
   }
 }
 
-export default InputField;
+export default InputField

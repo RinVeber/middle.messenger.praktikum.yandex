@@ -1,4 +1,4 @@
-import './index.scss';
+import './index.scss'
 
 const template = () => `
             <div class="writer">
@@ -6,6 +6,6 @@ const template = () => `
                 {{{inputMessage}}}
                 {{{buttonSend}}}
             </div>
-`;
+`
 
-export default template;
+export default template
