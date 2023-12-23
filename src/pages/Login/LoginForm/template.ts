@@ -1,4 +1,4 @@
-import './index.scss';
+import './index.scss'
 
 const template = () => `
 <div class='login__wrapper'>
@@ -15,6 +15,6 @@ const template = () => `
                 {{{buttonRegistration}}}
                 </div>
              
-`;
+`
 
-export default template;
+export default template

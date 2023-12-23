@@ -1,10 +1,12 @@
-import './index.scss';
+import './index.scss'
 
 const template = () => `
     <div class="chat__message-list" 
     {{#if active}}style="background:#E4EDFD;"{{else}}''{{/if}}>
-    {{#if avatar}}
-    <img class="message__avatar avatar" src="{{avatar}}"/>
+    {{#if isAvatar}}
+    <img class="message__avatar avatar" src="https://ya-praktikum.tech/api/v2/resources/{{avatar}}"/>
+    {{else}}
+    <img class="message__avatar avatar" src="{{avatar}}" />
     {{/if}}
         <div class="message__text message-info">
             <span class="message-info__name name">{{title}}</span>
@@ -24,6 +26,6 @@ const template = () => `
 
         </div>
     </div>
-`;
+`
 
-export default template;
+export default template

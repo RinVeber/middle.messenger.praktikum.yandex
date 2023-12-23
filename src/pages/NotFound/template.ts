@@ -1,4 +1,4 @@
-import './index.scss';
+import './index.scss'
 
 const template = () => `
 <div class="error">
@@ -8,6 +8,6 @@ const template = () => `
             {{{link}}}
         </div>
 </div>
-`;
+`
 
-export default template;
+export default template

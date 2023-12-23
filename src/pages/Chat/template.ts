@@ -1,5 +1,5 @@
-import linkUrl from '../../assets/icons/arrow-right.svg';
-import './index.scss';
+import linkUrl from '../../assets/icons/arrow-right.svg'
+import './index.scss'
 
 const template = () => `
 <div>
@@ -53,6 +53,6 @@ const template = () => `
 
     </div>
 </div>
-`;
+`
 
-export default template;
+export default template

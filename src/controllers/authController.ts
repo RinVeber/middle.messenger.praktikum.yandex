@@ -1,5 +1,5 @@
-import authApi, { ISigninData, ISignupData } from '../api/authApi';
-import router from '../libs/Router';
+import authApi, { type ISigninData, type ISignupData } from '../api/authApi';
+import router from '../libs/Router/Router';
 import store from '../libs/Store';
 import Routes from '../utils/constants';
 
@@ -25,7 +25,6 @@ class AuthController {
       await this.fetchUser();
       router.go(Routes.Chat);
     } catch (error: any) {
-      debugger;
       if (error?.reason === 'User already in system') router.go('/messenger');
       console.error(error);
     }

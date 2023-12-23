@@ -1,4 +1,4 @@
-import '../index.scss';
+import '../index.scss'
 
 const template = () => `
     <div class="register__title">
@@ -17,6 +17,6 @@ const template = () => `
         {{{buttonRegistration}}}
         {{{buttonSignIn}}}
     </div>
-`;
+`
 
-export default template;
+export default template
